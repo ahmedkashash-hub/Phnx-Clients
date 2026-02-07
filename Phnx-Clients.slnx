@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="Phnx.Application/Phnx.Application.csproj" Id="76a550e6-c6e9-475e-a22f-63ca7a22f527" />
+    <Project Path="Phnx.Contracts/Phnx.Contracts.csproj" Id="78d10687-02f6-4199-bf55-6b23c559b554" />
+    <Project Path="Phnx.DTOs/Phnx.DTOs.csproj" Id="b614a8d0-cdd4-470d-b2a8-a7336fe4c8eb" />
+  </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="Phnx-Clients/Phnx-Clients.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="Phnx.Infrastructure.Persistence/Phnx.Infrastructure.Persistence.csproj" Id="1dab6c7b-f87b-4464-999a-bfa2b07a185e" />
+    <Project Path="Phnx.Infrastructure.Services.Fids/Phnx.Infrastructure.Services.Fids.csproj" Id="05408aa3-e25b-40e4-8b6f-36557aad79dd" />
+    <Project Path="Phnx.Infrastructure.Services/Phnx.Infrastructure.Services.csproj" Id="f5c97142-6370-45c3-ad33-8655e0d70bb9" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="Phnx.Domain/Phnx.Domain.csproj" Id="d86f7631-cacd-4060-99e5-a5b805ce85e0" />
+    <Project Path="Phnx.Shared/Phnx.Shared.csproj" Id="88ea40d8-7157-4aa0-9450-d42e104d2d75" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="../Phnx-Clients1/Phnx.Tests.LanguageTests/Phnx.Tests.LanguageTests.csproj" Id="ced451be-61e0-487e-b432-5d259927644e" />
+  </Folder>
+</Solution>
