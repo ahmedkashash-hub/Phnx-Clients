@@ -7,6 +7,6 @@ namespace Phnx.Contracts
     public interface ILanguageService
     {
         string GetMessage(string key);
-        //string GetValue(Language language, string key);
+
     }
 }

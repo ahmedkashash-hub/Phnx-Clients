@@ -16,4 +16,9 @@
     <ProjectReference Include="..\Phnx.Shared\Phnx.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Payments\Queries\" />
+    <Folder Include="Projects\Queries\" />
+  </ItemGroup>
+
 </Project>
