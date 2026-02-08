@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi;
 using Phnx.Application;
-using Phnx.Infrastructure.Persistence;
 using Phnx.Infrastructure.Persistence.Database;
+using Phnx.Infrastructure.Persistence.Extensions;
 using Phnx_Clients.Extensions;
 using Phoenix.Mediator.Extensions;
 using Phoenix.Mediator.Web;
@@ -37,6 +37,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 builder.Services.AddApplicationServices();
+
 builder.Services.AddPersistenceServices(connectionString: builder.Configuration.GetConnectionString("airport") ?? throw new KeyNotFoundException("dbConnection was not found"),
                                         enableSensitiveLogging: true,
                                         ignoreModelWarnings: true);

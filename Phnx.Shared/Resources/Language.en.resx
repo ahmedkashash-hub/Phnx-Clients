@@ -120,9 +120,6 @@
   <data name="EMPTY_PASSWORD" xml:space="preserve">
     <value>Enter the password</value>
   </data>
-  <data name="EMPTY_EMAIL" xml:space="preserve">
-    <value>Enter the email</value>
-  </data>
   <data name="INVALID_CREDENTIALS" xml:space="preserve">
     <value>Invalid credentials</value>
   </data>
@@ -137,69 +134,6 @@
   </data>
   <data name="IMAGE_REQUIRED" xml:space="preserve">
     <value>Please add the image</value>
-  </data>
-  <data name="ADVERTISEMENT_NOT_FOUND" xml:space="preserve">
-    <value>Advertisement not found</value>
-  </data>
-  <data name="ADVERTISEMENT_ID_REQUIRED" xml:space="preserve">
-    <value>Please add the advertisement ID</value>
-  </data>
-  <data name="JOB_NOT_FOUND" xml:space="preserve">
-    <value>Job not found</value>
-  </data>
-  <data name="JOB_ID_REQUIRED" xml:space="preserve">
-    <value>Please add the job ID</value>
-  </data>
-  <data name="JOB_TITLE_REQUIRED" xml:space="preserve">
-    <value>Please add the job title</value>
-  </data>
-  <data name="JOB_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>Please add the job description</value>
-  </data>
-  <data name="DEPARTMENT_NOT_FOUND" xml:space="preserve">
-    <value>Department not found</value>
-  </data>
-  <data name="DEPARTMENT_ID_REQUIRED" xml:space="preserve">
-    <value>Please add the department ID</value>
-  </data>
-  <data name="DEPARTMENT_NAME_REQUIRED" xml:space="preserve">
-    <value>Please add the department name</value>
-  </data>
-  <data name="LOST_ITEM_NOT_FOUND" xml:space="preserve">
-    <value>Lost item not found</value>
-  </data>
-  <data name="LOST_ITEM_ID_REQUIRED" xml:space="preserve">
-    <value>Please add the lost item ID</value>
-  </data>
-  <data name="LOST_ITEM_NAME_REQUIRED" xml:space="preserve">
-    <value>Please add the lost item name</value>
-  </data>
-  <data name="LOST_ITEM_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>Please add the lost item description</value>
-  </data>
-  <data name="LOST_ITEM_CONTACT_NAME_REQUIRED" xml:space="preserve">
-    <value>Please add the contact name</value>
-  </data>
-  <data name="LOST_ITEM_CONTACT_PHONE_REQUIRED" xml:space="preserve">
-    <value>Please add the contact phone number</value>
-  </data>
-  <data name="EVENT_NOT_FOUND" xml:space="preserve">
-    <value>Event not found</value>
-  </data>
-  <data name="EVENT_ID_REQUIRED" xml:space="preserve">
-    <value>Please add the event ID</value>
-  </data>
-  <data name="EVENT_NAME_REQUIRED" xml:space="preserve">
-    <value>Please add the event name</value>
-  </data>
-  <data name="EVENT_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>Please add the event description</value>
-  </data>
-  <data name="EVENT_DATE_REQUIRED" xml:space="preserve">
-    <value>Please add the event date</value>
-  </data>
-  <data name="EVENT_TYPE_REQUIRED" xml:space="preserve">
-    <value>Please add the event type</value>
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
     <value>User not found</value>

@@ -1,11 +1,10 @@
 ﻿using Phnx.Domain.Entities;
 using Phnx.DTOs.Common;
-using Phnx.DTOs.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Phnx.DTOs
+namespace Phnx.DTOs.Users
 {
     public class UserAdminResult(User entity, List<AdminMiniResult> users) : BaseAuditResult<User>(entity, users)
     {

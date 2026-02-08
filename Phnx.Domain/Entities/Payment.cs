@@ -1,4 +1,5 @@
 ﻿using Phnx.Domain.Common;
+using Phnx.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;

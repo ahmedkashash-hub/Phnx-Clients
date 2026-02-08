@@ -7,38 +7,32 @@ namespace Phnx.Shared.Constants
 
     public static class LanguageConstants
     {
+      
+        #region Project Messages
 
-        public const string EMPTY_PASSWORD = nameof(EMPTY_PASSWORD);
-        public const string EMPTY_EMAIL = nameof(EMPTY_EMAIL);
-        public const string INVALID_CREDENTIALS = nameof(INVALID_CREDENTIALS);
-        public const string TOKEN_NOT_PROVIDED = nameof(TOKEN_NOT_PROVIDED);
-        public const string REFRESH_TOKEN_NOT_PROVIDED = nameof(REFRESH_TOKEN_NOT_PROVIDED);
-        public const string EXPIRED_SESSION = nameof(EXPIRED_SESSION);
+        public const string PROJECT_NOT_FOUND = nameof(PROJECT_NOT_FOUND);
+        public const string PROJECT_ID_REQUIRED = nameof(PROJECT_ID_REQUIRED);
+        public const string PROJECT_NAME_REQUIRED = nameof(PROJECT_NAME_REQUIRED);
+        public const string PROJECT_DESCRIPTION_REQUIRED = nameof(PROJECT_DESCRIPTION_REQUIRED);
         #endregion
 
-        #region Advertisement Messages
+        #region Client Messages
 
-        public const string IMAGE_REQUIRED = nameof(IMAGE_REQUIRED);
-        public const string ADVERTISEMENT_NOT_FOUND = nameof(ADVERTISEMENT_NOT_FOUND);
-        public const string ADVERTISEMENT_ID_REQUIRED = nameof(ADVERTISEMENT_ID_REQUIRED);
+        public const string CLIENT_NOT_FOUND = nameof(CLIENT_NOT_FOUND);
+        public const string CLIENT_ID_REQUIRED = nameof(CLIENT_ID_REQUIRED);
+        public const string CLIENT_NAME_REQUIRED = nameof(CLIENT_NAME_REQUIRED);
+        public const string CLIENT_COMPANTNAME_REQUIRED = nameof(CLIENT_COMPANTNAME_REQUIRED);
         #endregion
 
-        #region Job Messages
+        #region Payment Messages
 
-        public const string JOB_NOT_FOUND = nameof(JOB_NOT_FOUND);
-        public const string JOB_ID_REQUIRED = nameof(JOB_ID_REQUIRED);
-        public const string JOB_TITLE_REQUIRED = nameof(JOB_TITLE_REQUIRED);
-        public const string JOB_DESCRIPTION_REQUIRED = nameof(JOB_DESCRIPTION_REQUIRED);
+        public const string PAYMENT_NOT_FOUND = nameof(PAYMENT_NOT_FOUND);
+        public const string PAYMENT_TYPE_REQUIRED = nameof(PAYMENT_TYPE_REQUIRED);
+        public const string PAYMENT_AMOUNT_REQUIRED = nameof(PAYMENT_AMOUNT_REQUIRED);
+        public const string PAYMENT_METHOD_REQUIRED = nameof(PAYMENT_METHOD_REQUIRED);
         #endregion
 
-        #region Department Messages
-
-        public const string DEPARTMENT_NOT_FOUND = nameof(DEPARTMENT_NOT_FOUND);
-        public const string DEPARTMENT_ID_REQUIRED = nameof(DEPARTMENT_ID_REQUIRED);
-        public const string DEPARTMENT_NAME_REQUIRED = nameof(DEPARTMENT_NAME_REQUIRED);
-        #endregion
-
-
+      
 
         #region User Messages
 

@@ -120,9 +120,6 @@
   <data name="EMPTY_PASSWORD" xml:space="preserve">
     <value>يرجى كتابة كلمة السر</value>
   </data>
-  <data name="EMPTY_EMAIL" xml:space="preserve">
-    <value>يرجى كتابة البريد الإلكتروني</value>
-  </data>
   <data name="INVALID_CREDENTIALS" xml:space="preserve">
     <value>بيانات الاعتماد غير صحيحة</value>
   </data>
@@ -137,69 +134,6 @@
   </data>
   <data name="IMAGE_REQUIRED" xml:space="preserve">
     <value>يرجى إضافة الصورة</value>
-  </data>
-  <data name="ADVERTISEMENT_NOT_FOUND" xml:space="preserve">
-    <value>الإعلان غير موجود</value>
-  </data>
-  <data name="ADVERTISEMENT_ID_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة معرف الإعلان</value>
-  </data>
-  <data name="JOB_NOT_FOUND" xml:space="preserve">
-    <value>الوظيفة غير موجودة</value>
-  </data>
-  <data name="JOB_ID_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة معرف الوظيفة</value>
-  </data>
-  <data name="JOB_TITLE_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة عنوان الوظيفة</value>
-  </data>
-  <data name="JOB_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة وصف الوظيفة</value>
-  </data>
-  <data name="DEPARTMENT_NOT_FOUND" xml:space="preserve">
-    <value>القسم غير موجود</value>
-  </data>
-  <data name="DEPARTMENT_ID_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة معرف القسم</value>
-  </data>
-  <data name="DEPARTMENT_NAME_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة اسم القسم</value>
-  </data>
-  <data name="LOST_ITEM_NOT_FOUND" xml:space="preserve">
-    <value>العنصر المفقود غير موجود</value>
-  </data>
-  <data name="LOST_ITEM_ID_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة معرف العنصر المفقود</value>
-  </data>
-  <data name="LOST_ITEM_NAME_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة اسم العنصر المفقود</value>
-  </data>
-  <data name="LOST_ITEM_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة وصف العنصر المفقود</value>
-  </data>
-  <data name="LOST_ITEM_CONTACT_NAME_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة اسم جهة الاتصال</value>
-  </data>
-  <data name="LOST_ITEM_CONTACT_PHONE_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة رقم هاتف جهة الاتصال</value>
-  </data>
-  <data name="EVENT_NOT_FOUND" xml:space="preserve">
-    <value>الحدث غير موجود</value>
-  </data>
-  <data name="EVENT_ID_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة معرف الحدث</value>
-  </data>
-  <data name="EVENT_NAME_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة اسم الحدث</value>
-  </data>
-  <data name="EVENT_DESCRIPTION_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة وصف الحدث</value>
-  </data>
-  <data name="EVENT_DATE_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة تاريخ الحدث</value>
-  </data>
-  <data name="EVENT_TYPE_REQUIRED" xml:space="preserve">
-    <value>يرجى إضافة نوع الحدث</value>
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
     <value>المستخدم غير موجود</value>

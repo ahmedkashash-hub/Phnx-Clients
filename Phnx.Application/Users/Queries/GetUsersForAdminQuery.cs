@@ -1,7 +1,6 @@
 ﻿
 using Phnx.Domain.Common;
 using Phnx.Domain.Entities;
-using Phnx.DTOs;
 using Phnx.DTOs.Users;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Wrappers;

@@ -52,7 +52,7 @@ namespace Phnx_Clients.Extensions
                 };
             });
             services.AddHttpContextAccessor();
-            services.AddTransient<IAuthenticationService, AuthenticationService>();
+            services.AddTransient<IAuthenticationService, Microsoft.AspNetCore.Authentication.AuthenticationService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddAuthentication(options =>
             {

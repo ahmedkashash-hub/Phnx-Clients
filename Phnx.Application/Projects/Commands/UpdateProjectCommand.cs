@@ -29,7 +29,7 @@ public class UpdateProjectCommandValidator : AbstractValidator<UpdateProjectComm
 
         RuleFor(x => x.ProjectName)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.DEPARTMENT_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
     }
 }
 
@@ -43,7 +43,7 @@ sealed class UpdateProjectCommandHandler(
         IGenericRepository<Project> repository = unitOfWork.GenericRepository<Project>();
 
         Project project = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.DEPARTMENT_ID_REQUIRED));
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
 
         project.Update(
             request.ProjectName,

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 
-namespace Phnx.Infrastructure.Persistence
+namespace Phnx.Infrastructure.Persistence.Extensions
 {
 
     public static class DependancyInjection

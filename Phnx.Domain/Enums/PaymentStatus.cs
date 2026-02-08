@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Phnx.Domain.Entities
+namespace Phnx.Domain.Enums
 {
     public enum PaymentStatus
     {
