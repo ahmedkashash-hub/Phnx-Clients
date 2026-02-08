@@ -7,7 +7,6 @@ namespace Phnx.Shared.Constants
 
     public static class LanguageConstants
     {
-        #region Auth Messages
 
         public const string EMPTY_PASSWORD = nameof(EMPTY_PASSWORD);
         public const string EMPTY_EMAIL = nameof(EMPTY_EMAIL);
@@ -39,25 +38,7 @@ namespace Phnx.Shared.Constants
         public const string DEPARTMENT_NAME_REQUIRED = nameof(DEPARTMENT_NAME_REQUIRED);
         #endregion
 
-        #region LostItem Messages
 
-        public const string LOST_ITEM_NOT_FOUND = nameof(LOST_ITEM_NOT_FOUND);
-        public const string LOST_ITEM_ID_REQUIRED = nameof(LOST_ITEM_ID_REQUIRED);
-        public const string LOST_ITEM_NAME_REQUIRED = nameof(LOST_ITEM_NAME_REQUIRED);
-        public const string LOST_ITEM_DESCRIPTION_REQUIRED = nameof(LOST_ITEM_DESCRIPTION_REQUIRED);
-        public const string LOST_ITEM_CONTACT_NAME_REQUIRED = nameof(LOST_ITEM_CONTACT_NAME_REQUIRED);
-        public const string LOST_ITEM_CONTACT_PHONE_REQUIRED = nameof(LOST_ITEM_CONTACT_PHONE_REQUIRED);
-        #endregion
-
-        #region Event Messages
-
-        public const string EVENT_NOT_FOUND = nameof(EVENT_NOT_FOUND);
-        public const string EVENT_ID_REQUIRED = nameof(EVENT_ID_REQUIRED);
-        public const string EVENT_NAME_REQUIRED = nameof(EVENT_NAME_REQUIRED);
-        public const string EVENT_DESCRIPTION_REQUIRED = nameof(EVENT_DESCRIPTION_REQUIRED);
-        public const string EVENT_DATE_REQUIRED = nameof(EVENT_DATE_REQUIRED);
-        public const string EVENT_TYPE_REQUIRED = nameof(EVENT_TYPE_REQUIRED);
-        #endregion
 
         #region User Messages
 
