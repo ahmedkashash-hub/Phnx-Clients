@@ -24,11 +24,11 @@ public class UpdatePaymentCommandValidator : AbstractValidator<UpdatePaymentComm
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_ID_REQUIRED));
 
         RuleFor(x => x.Amount)
             .GreaterThan(0)
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_AMOUNT_REQUIRED));
     }
 }
 sealed class UpdatePaymentCommandHandler(
@@ -41,7 +41,7 @@ sealed class UpdatePaymentCommandHandler(
         IGenericRepository<Payment> repository = unitOfWork.GenericRepository<Payment>();
 
         Payment payment = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.PAYMENT_NOT_FOUND));
 
         payment.Update(
             request.PaymentType,

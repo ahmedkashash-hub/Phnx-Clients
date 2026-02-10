@@ -16,7 +16,7 @@ public class DeleteProjectCommandValidator : AbstractValidator<DeleteProjectComm
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
     }
 }
 sealed class DeleteProjectCommandHandler(
@@ -29,7 +29,7 @@ sealed class DeleteProjectCommandHandler(
         IGenericRepository<Project> repository = unitOfWork.GenericRepository<Project>();
 
         Project project = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_PASSWORD_REQUIRED));
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.PROJECT_NOT_FOUND));
 
         repository.Delete(project);
         await unitOfWork.SaveChangesAsync(cancellationToken);

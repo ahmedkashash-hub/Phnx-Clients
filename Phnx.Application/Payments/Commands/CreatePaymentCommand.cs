@@ -25,11 +25,11 @@ public class CreatePaymentCommandValidator : AbstractValidator<CreatePaymentComm
     {
         RuleFor(x => x.PaymentType)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_TYPE_REQUIRED));
 
         RuleFor(x => x.Amount)
             .GreaterThan(0)
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_AMOUNT_REQUIRED));
     }
 }
 sealed class CreatePaymentCommandHandler(IUnitOfWork unitOfWork)

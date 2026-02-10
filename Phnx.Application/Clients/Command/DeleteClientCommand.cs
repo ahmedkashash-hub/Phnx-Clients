@@ -19,7 +19,7 @@ namespace Phnx.Application.Clients.Command
         {
             RuleFor(x => x.Id)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
         }
     }
     sealed class DeleteClientCommandHandler(
@@ -32,7 +32,7 @@ namespace Phnx.Application.Clients.Command
             IGenericRepository<Client> repository = unitOfWork.GenericRepository<Client>();
 
             Client client = await repository.GetById(request.Id, cancellationToken)
-                ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.CLIENT_NOT_FOUND));
 
             repository.Delete(client);
             await unitOfWork.SaveChangesAsync(cancellationToken);

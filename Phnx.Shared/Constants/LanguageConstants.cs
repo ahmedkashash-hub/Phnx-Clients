@@ -7,7 +7,22 @@ namespace Phnx.Shared.Constants
 
     public static class LanguageConstants
     {
-      
+        #region Visit Messages
+        public const string VISIT_NOT_FOUND = nameof(VISIT_NOT_FOUND);
+        public const string Visit_ID_REQUIRED = nameof(Visit_ID_REQUIRED);
+        public const string VISIT_TIME_REQUIRED = nameof(VISIT_TIME_REQUIRED);
+            #endregion
+
+
+
+        #region Client Messages
+
+        public const string CLIENT_NOT_FOUND = nameof(CLIENT_NOT_FOUND);
+        public const string CLIENT_ID_REQUIRED = nameof(CLIENT_ID_REQUIRED);
+        public const string CLIENT_NAME_REQUIRED = nameof(CLIENT_NAME_REQUIRED);
+        public const string CLIENT_COMPANTNAME_REQUIRED = nameof(CLIENT_COMPANTNAME_REQUIRED);
+        #endregion
+
         #region Project Messages
 
         public const string PROJECT_NOT_FOUND = nameof(PROJECT_NOT_FOUND);
@@ -21,15 +36,14 @@ namespace Phnx.Shared.Constants
         #region Payment Messages
 
         public const string PAYMENT_NOT_FOUND = nameof(PAYMENT_NOT_FOUND);
+        public const string PAYMENT_ID_REQUIRED = nameof(PAYMENT_ID_REQUIRED);
         public const string PAYMENT_TYPE_REQUIRED = nameof(PAYMENT_TYPE_REQUIRED);
         public const string PAYMENT_AMOUNT_REQUIRED = nameof(PAYMENT_AMOUNT_REQUIRED);
-        public const string PAYMENT_METHOD_REQUIRED = nameof(PAYMENT_METHOD_REQUIRED);
         #endregion
 
-      
+
 
         #region User Messages
-
         public const string USER_NOT_FOUND = nameof(USER_NOT_FOUND);
         public const string USER_ID_REQUIRED = nameof(USER_ID_REQUIRED);
         public const string USER_NAME_REQUIRED = nameof(USER_NAME_REQUIRED);
@@ -40,4 +54,5 @@ namespace Phnx.Shared.Constants
         public const string USER_PERMISSIONS_INVALID = nameof(USER_PERMISSIONS_INVALID);
         #endregion
     }
+
 }

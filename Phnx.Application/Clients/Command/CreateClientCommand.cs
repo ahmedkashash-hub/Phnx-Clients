@@ -23,11 +23,11 @@ namespace Phnx.Application.Clients.Command
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_NAME_REQUIRED));
 
             RuleFor(x => x.CompanyName)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
         }
     }
 

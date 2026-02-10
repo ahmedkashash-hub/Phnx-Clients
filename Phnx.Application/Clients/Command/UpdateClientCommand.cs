@@ -25,15 +25,15 @@ namespace Phnx.Application.Clients.Command
         {
             RuleFor(x => x.Id)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
 
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_NAME_REQUIRED));
 
             RuleFor(x => x.CompanyName)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
         }
     }
     sealed class UpdateClientCommandHandler(
@@ -46,7 +46,7 @@ namespace Phnx.Application.Clients.Command
             IGenericRepository<Client> repository = unitOfWork.GenericRepository<Client>();
 
             Client client = await repository.GetById(request.Id, cancellationToken)
-                ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+                ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.CLIENT_NOT_FOUND));
 
             client.Update(
                 request.Name,

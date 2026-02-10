@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EMPTY_PASSWORD" xml:space="preserve">
-    <value>يرجى كتابة كلمة السر</value>
-  </data>
   <data name="INVALID_CREDENTIALS" xml:space="preserve">
     <value>بيانات الاعتماد غير صحيحة</value>
   </data>
@@ -158,5 +155,53 @@
   </data>
   <data name="USER_PERMISSIONS_INVALID" xml:space="preserve">
     <value>الصلاحيات غير صحيحة</value>
+  </data>
+  <data name="EMPTY_PASSWORD" xml:space="preserve">
+    <value>يرجى كتابة كلمة السر</value>
+  </data>
+  <data name="CLIENT_ID_REQUIRED" xml:space="preserve">
+    <value>يرجى أدخال  معرف المستخدم</value>
+  </data>
+  <data name="Visit_ID_REQUIRED" xml:space="preserve">
+    <value>يرجى أدخال  معرف الزيارة</value>
+  </data>
+  <data name="PROJECT_ID_REQUIRED" xml:space="preserve">
+    <value>يرجى إضافة معرف المشروع</value>
+  </data>
+  <data name="PAYMENT_ID_REQUIRED" xml:space="preserve">
+    <value>يرجى أدخال  معرف الدفع</value>
+  </data>
+  <data name="VISIT_NOT_FOUND" xml:space="preserve">
+    <value>الزيارة غير موجودة</value>
+  </data>
+  <data name="CLIENT_NOT_FOUND" xml:space="preserve">
+    <value>العميل غير موجود</value>
+  </data>
+  <data name="PROJECT_NOT_FOUND" xml:space="preserve">
+    <value>المشروع مفقود</value>
+  </data>
+  <data name="PAYMENT_NOT_FOUND" xml:space="preserve">
+    <value>الجلسة مفقودة</value>
+  </data>
+  <data name="PAYMENT_AMOUNT_REQUIRED" xml:space="preserve">
+    <value>يرجى أدخال المبلغ </value>
+  </data>
+  <data name="PAYMENT_TYPE_REQUIRED" xml:space="preserve">
+    <value>يرجى ادخال طريقة الدفع</value>
+  </data>
+  <data name="PROJECT_NAME_REQUIRED" xml:space="preserve">
+    <value>يرجى إضافة أسم المشروع</value>
+  </data>
+  <data name="PROJECT_DESCRIPTION_REQUIRED" xml:space="preserve">
+    <value>يرجى إضافة وصف عن المشروع</value>
+  </data>
+  <data name="CLIENT_NAME_REQUIRED" xml:space="preserve">
+    <value>يرجى إضافة اسم العميل</value>
+  </data>
+  <data name="VISIT_TIME_REQUIRED" xml:space="preserve">
+    <value>يرجى أدخال  وقت الزيارة</value>
+  </data>
+  <data name="CLIENT_COMPANTNAME_REQUIRED" xml:space="preserve">
+    <value>أدخل اسم الشركة</value>
   </data>
 </root>

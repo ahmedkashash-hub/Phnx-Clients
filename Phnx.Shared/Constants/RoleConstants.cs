@@ -9,7 +9,7 @@ namespace Phnx.Shared.Constants
         public const string SUPER_ADMIN = "SuperAdmin";
         public const string FIANCE = "Fiance";
         public const string TECHNICAL_ADMIN = "TechnicalAdmin";
-        public const string SUPER = "SUPER";
+        public const string SUPER = "Super";
         public const string READ_ONLY = "ReadOnly";
 
     }

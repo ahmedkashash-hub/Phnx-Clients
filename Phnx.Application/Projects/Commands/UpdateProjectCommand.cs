@@ -11,12 +11,13 @@ namespace Phnx.Application.Projects.Commands;
 
 public class UpdateProjectCommand : IRequest
 {
-    public Guid Id { get; set; }
-    public string ProjectName { get; set; } = string.Empty;
-    public string? Description { get; set; }
-    public DateTime MvpReleaseDate { get; set; }
-    public DateTime ProductionReleaseDate { get; set; }
-    public DateTime ExpiryDate { get; set; }
+    public Guid Id { get; init; }
+    public string ProjectName { get; init; } = string.Empty;
+    public string? Description { get; init; }
+    public int ClientId { get; init; }
+    public DateTime MvpReleaseDate { get; init; }
+    public DateTime ProductionReleaseDate { get; init; }
+    public DateTime ExpiryDate { get; init; }
 }
 
 public class UpdateProjectCommandValidator : AbstractValidator<UpdateProjectCommand>
@@ -25,11 +26,11 @@ public class UpdateProjectCommandValidator : AbstractValidator<UpdateProjectComm
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
 
         RuleFor(x => x.ProjectName)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_NAME_REQUIRED));
     }
 }
 
@@ -43,11 +44,13 @@ sealed class UpdateProjectCommandHandler(
         IGenericRepository<Project> repository = unitOfWork.GenericRepository<Project>();
 
         Project project = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.PROJECT_NOT_FOUND));
 
         project.Update(
             request.ProjectName,
             request.Description,
+            request.ClientId,
+
             request.MvpReleaseDate,
             request.ProductionReleaseDate,
             request.ExpiryDate);

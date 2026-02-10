@@ -10,19 +10,20 @@ namespace Phnx.Application.Projects.Commands;
 
 public class CreateProjectCommand : IRequest
 {
-    public string ProjectName { get; set; } = string.Empty;
-    public string? Description { get; set; }
-    public DateTime MvpReleaseDate { get; set; }
-    public DateTime ProductionReleaseDate { get; set; }
-    public DateTime ExpiryDate { get; set; }
+    public string? ProjectName { get; init; }
+    public string? Description { get; init; }
+    public int ClientId { get; init; }
+    public DateTime MvpReleaseDate { get; init; }
+    public DateTime ProductionReleaseDate { get; init; }
+    public DateTime ExpiryDate { get; init; }
 }
 public class CreateProjectCommandValidator : AbstractValidator<CreateProjectCommand>
 {
     public CreateProjectCommandValidator(ILanguageService languageService)
     {
-        //RuleFor(x => x.ProjectName)
-        //    .NotEmpty()
-        //    .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_NAME_REQUIRED));
+        RuleFor(x => x.ProjectName)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_NAME_REQUIRED));
     }
 }
 sealed class CreateProjectCommandHandler(IUnitOfWork unitOfWork)
@@ -35,6 +36,7 @@ sealed class CreateProjectCommandHandler(IUnitOfWork unitOfWork)
         Project project = Project.Create(
             request.ProjectName,
             request.Description,
+            request.ClientId,
             request.MvpReleaseDate,
             request.ProductionReleaseDate,
             request.ExpiryDate);

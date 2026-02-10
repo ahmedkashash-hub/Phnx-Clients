@@ -61,6 +61,42 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to أدخل اسم الشركة.
+        /// </summary>
+        public static string CLIENT_COMPANTNAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CLIENT_COMPANTNAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى أدخال  معرف المستخدم.
+        /// </summary>
+        public static string CLIENT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("CLIENT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى إضافة اسم العميل.
+        /// </summary>
+        public static string CLIENT_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CLIENT_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to العميل غير موجود.
+        /// </summary>
+        public static string CLIENT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("CLIENT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to يرجى كتابة كلمة السر.
         /// </summary>
         public static string EMPTY_PASSWORD {
@@ -93,6 +129,78 @@ namespace Phnx.Shared.Resources {
         public static string INVALID_CREDENTIALS {
             get {
                 return ResourceManager.GetString("INVALID_CREDENTIALS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى أدخال المبلغ .
+        /// </summary>
+        public static string PAYMENT_AMOUNT_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_AMOUNT_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى أدخال  معرف الدفع.
+        /// </summary>
+        public static string PAYMENT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الجلسة مفقودة.
+        /// </summary>
+        public static string PAYMENT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("PAYMENT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى ادخال طريقة الدفع.
+        /// </summary>
+        public static string PAYMENT_TYPE_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_TYPE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى إضافة وصف عن المشروع.
+        /// </summary>
+        public static string PROJECT_DESCRIPTION_REQUIRED {
+            get {
+                return ResourceManager.GetString("PROJECT_DESCRIPTION_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى إضافة معرف المشروع.
+        /// </summary>
+        public static string PROJECT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("PROJECT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى إضافة أسم المشروع.
+        /// </summary>
+        public static string PROJECT_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("PROJECT_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to المشروع مفقود.
+        /// </summary>
+        public static string PROJECT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("PROJECT_NOT_FOUND", resourceCulture);
             }
         }
         
@@ -183,6 +291,33 @@ namespace Phnx.Shared.Resources {
         public static string USER_PERMISSIONS_INVALID {
             get {
                 return ResourceManager.GetString("USER_PERMISSIONS_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى أدخال  معرف الزيارة.
+        /// </summary>
+        public static string Visit_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("Visit_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الزيارة غير موجودة.
+        /// </summary>
+        public static string VISIT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("VISIT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to يرجى أدخال  وقت الزيارة.
+        /// </summary>
+        public static string VISIT_TIME_REQUIRED {
+            get {
+                return ResourceManager.GetString("VISIT_TIME_REQUIRED", resourceCulture);
             }
         }
     }

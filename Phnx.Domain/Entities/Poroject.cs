@@ -14,6 +14,7 @@ namespace Phnx.Domain.Entities
         private Project(
             string projectName,
             string? description,
+            int clientId,
             DateTime mvpReleaseDate,
             DateTime productionReleaseDate,
             DateTime expiryDate)
@@ -21,6 +22,7 @@ namespace Phnx.Domain.Entities
             ProjectName = projectName;
             Description = description;
             CreationDate = DateTime.UtcNow;
+            ClientId = clientId;
             MvpReleaseDate = mvpReleaseDate;
             ProductionReleaseDate = productionReleaseDate;
             ExpiryDate = expiryDate;
@@ -30,14 +32,18 @@ namespace Phnx.Domain.Entities
         public static Project Create(
             string projectName,
             string? description,
+                int clientId,
             DateTime mvpReleaseDate,
             DateTime productionReleaseDate,
             DateTime expiryDate)
-            => new(projectName, description, mvpReleaseDate, productionReleaseDate, expiryDate);
+            => new(projectName, description, clientId, mvpReleaseDate, productionReleaseDate, expiryDate);
+
+
 
         public string ProjectName { get; private set; } = string.Empty;
         public string? Description { get; private set; }
         public DateTime CreationDate { get; private set; }
+        public int ClientId { get; private set; }
         public DateTime MvpReleaseDate { get; private set; }
         public DateTime ProductionReleaseDate { get; private set; }
         public DateTime ExpiryDate { get; private set; }
@@ -46,12 +52,15 @@ namespace Phnx.Domain.Entities
         public void Update(
             string projectName,
             string? description,
+            int clientId,
             DateTime mvpReleaseDate,
+
             DateTime productionReleaseDate,
             DateTime expiryDate)
         {
             ProjectName = projectName;
             Description = description;
+            ClientId = clientId;
             MvpReleaseDate = mvpReleaseDate;
             ProductionReleaseDate = productionReleaseDate;
             ExpiryDate = expiryDate;

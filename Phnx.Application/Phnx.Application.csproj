@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Projects\Queries\**" />
+    <EmbeddedResource Remove="Projects\Queries\**" />
+    <None Remove="Projects\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Phoenix.Mediator" Version="1.1.0-preview.8" />
   </ItemGroup>
 
@@ -18,7 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Payments\Queries\" />
-    <Folder Include="Projects\Queries\" />
+    <Folder Include="Visits\Queries\" />
   </ItemGroup>
 
 </Project>

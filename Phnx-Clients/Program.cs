@@ -37,8 +37,10 @@ builder.Services.ConfigureHttpJsonOptions(options =>
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
-builder.Services.AddPersistenceServices(connectionString: builder.Configuration.GetConnectionString("airport") ?? throw new KeyNotFoundException("dbConnection was not found"),
+
+builder.Services.AddPersistenceServices(connectionString: builder.Configuration.GetConnectionString("Phnx") ?? throw new KeyNotFoundException("dbConnection was not found"),
                                         enableSensitiveLogging: true,
                                         ignoreModelWarnings: true);
 

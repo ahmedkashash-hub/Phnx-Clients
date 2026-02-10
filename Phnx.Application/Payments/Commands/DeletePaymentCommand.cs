@@ -16,7 +16,7 @@ public class DeletePaymentCommandValidator : AbstractValidator<DeletePaymentComm
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_ID_REQUIRED));
     }
 }
 sealed class DeletePaymentCommandHandler(
@@ -29,7 +29,7 @@ sealed class DeletePaymentCommandHandler(
         IGenericRepository<Payment> repository = unitOfWork.GenericRepository<Payment>();
 
         Payment payment = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.PAYMENT_NOT_FOUND));
 
         repository.Delete(payment);
         await unitOfWork.SaveChangesAsync(cancellationToken);
