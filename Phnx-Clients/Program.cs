@@ -5,6 +5,7 @@ using Microsoft.OpenApi;
 using Phnx.Application;
 using Phnx.Infrastructure.Persistence.Database;
 using Phnx.Infrastructure.Persistence.Extensions;
+using Phnx.Infrastructure.Services;
 using Phnx_Clients.Extensions;
 using Phoenix.Mediator.Extensions;
 using Phoenix.Mediator.Web;
@@ -38,6 +39,7 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
 
 
 builder.Services.AddPersistenceServices(connectionString: builder.Configuration.GetConnectionString("Phnx") ?? throw new KeyNotFoundException("dbConnection was not found"),
