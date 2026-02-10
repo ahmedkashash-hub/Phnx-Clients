@@ -16,13 +16,7 @@ namespace Phnx.Shared.Constants
         public const string PROJECT_DESCRIPTION_REQUIRED = nameof(PROJECT_DESCRIPTION_REQUIRED);
         #endregion
 
-        #region Client Messages
 
-        public const string CLIENT_NOT_FOUND = nameof(CLIENT_NOT_FOUND);
-        public const string CLIENT_ID_REQUIRED = nameof(CLIENT_ID_REQUIRED);
-        public const string CLIENT_NAME_REQUIRED = nameof(CLIENT_NAME_REQUIRED);
-        public const string CLIENT_COMPANTNAME_REQUIRED = nameof(CLIENT_COMPANTNAME_REQUIRED);
-        #endregion
 
         #region Payment Messages
 
