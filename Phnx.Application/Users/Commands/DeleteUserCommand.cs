@@ -30,8 +30,6 @@ sealed class DeleteUserCommandHandler(IUnitOfWork unitOfWork, ILanguageService l
         User? user = await userRepository.GetById(request.Id, cancellationToken)
             ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_NOT_FOUND));
 
-        if (user.Email == User.AdminEmail)
-            throw new BadRequestException("Cannot delete the admin user.");
 
         userRepository.Delete(user);
         await unitOfWork.SaveChangesAsync(cancellationToken);
