@@ -40,7 +40,6 @@ namespace Phnx.Domain.Entities
         public void Update(
                int clientId,
                 DateTime timeVisit,
-               
                 string note)
             {
                 ClientId = clientId;
