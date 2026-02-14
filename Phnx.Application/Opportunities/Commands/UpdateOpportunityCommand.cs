@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
@@ -20,38 +22,46 @@ public class UpdateOpportunityCommand : IRequest
 
 public class UpdateOpportunityCommandValidator : AbstractValidator<UpdateOpportunityCommand>
 {
-    public UpdateOpportunityCommandValidator()
+    public UpdateOpportunityCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage("Id is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_ID_REQUIRED));
 
         RuleFor(x => x.Name)
             .NotEmpty()
-            .WithMessage("Name is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_NAME_REQUIRED));
+
+        RuleFor(x => x.ClientId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+
+        RuleFor(x => x.LeadId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_ID_REQUIRED));
 
         RuleFor(x => x.Value)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Value must be >= 0.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_VALUE_INVALID));
 
         RuleFor(x => x.Probability)
             .InclusiveBetween(0, 100)
-            .WithMessage("Probability must be between 0 and 100.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_PROBABILITY_INVALID));
     }
 }
 
-sealed class UpdateOpportunityCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateOpportunityCommand>
+sealed class UpdateOpportunityCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService) : IRequestHandler<UpdateOpportunityCommand>
 {
     public async Task Handle(UpdateOpportunityCommand request, CancellationToken cancellationToken)
     {
         IGenericRepository<Opportunity> repository = unitOfWork.GenericRepository<Opportunity>();
         Opportunity opportunity = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException("Opportunity not found.");
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.OPPORTUNITY_NOT_FOUND));
 
         opportunity.Update(
             request.Name,
-            request.ClientId,
-            request.LeadId,
+            request.ClientId!.Value,
+            request.LeadId!.Value,
             request.Value,
             request.Probability,
             request.ExpectedCloseDate,

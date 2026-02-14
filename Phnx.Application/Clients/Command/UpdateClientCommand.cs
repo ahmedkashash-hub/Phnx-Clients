@@ -41,7 +41,7 @@ namespace Phnx.Application.Clients.Command
 
             RuleFor(x => x.CompanyName)
                 .NotEmpty()
-                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANTNAME_REQUIRED));
+                .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_COMPANYNAME_REQUIRED));
         }
     }
     sealed class UpdateClientCommandHandler(

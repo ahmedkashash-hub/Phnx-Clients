@@ -34,9 +34,25 @@ public class CreatePaymentCommandValidator : AbstractValidator<CreatePaymentComm
             .GreaterThan(0)
             .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_AMOUNT_REQUIRED));
 
+        RuleFor(x => x.DueDate)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_DUE_DATE_REQUIRED));
+
+        RuleFor(x => x.Method)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PAYMENT_METHOD_REQUIRED));
+
         RuleFor(x => x.ClientId)
             .NotEmpty()
             .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+
+        RuleFor(x => x.ProjectId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
+
+        RuleFor(x => x.InvoiceId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_ID_REQUIRED));
     }
 }
 sealed class CreatePaymentCommandHandler(IUnitOfWork unitOfWork)
@@ -52,8 +68,8 @@ sealed class CreatePaymentCommandHandler(IUnitOfWork unitOfWork)
             request.DueDate,
             request.Method,
             request.ClientId,
-            request.ProjectId,
-            request.InvoiceId,
+            request.ProjectId!.Value,
+            request.InvoiceId!.Value,
             request.TransactionReference);
 
         await repository.Create(payment, cancellationToken);

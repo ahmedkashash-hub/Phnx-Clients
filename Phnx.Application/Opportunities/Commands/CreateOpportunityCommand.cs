@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 
 namespace Phnx.Application.Opportunities.Commands;
@@ -18,19 +20,27 @@ public class CreateOpportunityCommand : IRequest
 
 public class CreateOpportunityCommandValidator : AbstractValidator<CreateOpportunityCommand>
 {
-    public CreateOpportunityCommandValidator()
+    public CreateOpportunityCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Name)
             .NotEmpty()
-            .WithMessage("Name is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_NAME_REQUIRED));
+
+        RuleFor(x => x.ClientId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+
+        RuleFor(x => x.LeadId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_ID_REQUIRED));
 
         RuleFor(x => x.Value)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Value must be >= 0.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_VALUE_INVALID));
 
         RuleFor(x => x.Probability)
             .InclusiveBetween(0, 100)
-            .WithMessage("Probability must be between 0 and 100.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.OPPORTUNITY_PROBABILITY_INVALID));
     }
 }
 
@@ -42,8 +52,8 @@ sealed class CreateOpportunityCommandHandler(IUnitOfWork unitOfWork) : IRequestH
 
         Opportunity opportunity = Opportunity.Create(
             request.Name,
-            request.ClientId,
-            request.LeadId,
+            request.ClientId!.Value,
+            request.LeadId!.Value,
             request.Value,
             request.Probability,
             request.ExpectedCloseDate,

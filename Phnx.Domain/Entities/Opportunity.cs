@@ -9,8 +9,8 @@ namespace Phnx.Domain.Entities
 
         private Opportunity(
             string name,
-            Guid? clientId,
-            Guid? leadId,
+            Guid clientId,
+            Guid leadId,
             decimal value,
             int probability,
             DateTime? expectedCloseDate,
@@ -29,8 +29,8 @@ namespace Phnx.Domain.Entities
 
         public static Opportunity Create(
             string name,
-            Guid? clientId,
-            Guid? leadId,
+            Guid clientId,
+            Guid leadId,
             decimal value,
             int probability,
             DateTime? expectedCloseDate,
@@ -39,7 +39,7 @@ namespace Phnx.Domain.Entities
             => new Opportunity(name, clientId, leadId, value, probability, expectedCloseDate, stage, notes);
 
         public string Name { get; private set; } = string.Empty;
-        public Guid? ClientId { get; private set; }
+        public Guid ClientId { get; private set; }
         public Guid? LeadId { get; private set; }
         public decimal Value { get; private set; }
         public int Probability { get; private set; }
@@ -49,8 +49,8 @@ namespace Phnx.Domain.Entities
 
         public void Update(
             string name,
-            Guid? clientId,
-            Guid? leadId,
+            Guid clientId,
+            Guid leadId,
             decimal value,
             int probability,
             DateTime? expectedCloseDate,

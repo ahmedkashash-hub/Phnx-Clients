@@ -15,7 +15,7 @@ namespace Phnx.Domain.Entities
             string phoneNumber,
             ContactMethod preferredContactMethod,
             bool isPrimary,
-            string? title,
+            string title,
             string? notes)
         {
             ClientId = clientId;
@@ -37,7 +37,7 @@ namespace Phnx.Domain.Entities
             string phoneNumber,
             ContactMethod preferredContactMethod,
             bool isPrimary,
-            string? title,
+            string title,
             string? notes)
             => new Contact(clientId, firstName, lastName, email, phoneNumber, preferredContactMethod, isPrimary, title, notes);
 
@@ -48,7 +48,7 @@ namespace Phnx.Domain.Entities
         public string PhoneNumber { get; private set; } = string.Empty;
         public ContactMethod PreferredContactMethod { get; private set; } = ContactMethod.Email;
         public bool IsPrimary { get; private set; }
-        public string? Title { get; private set; }
+        public string Title { get; private set; }
         public string? Notes { get; private set; }
 
         public void Update(
@@ -59,7 +59,7 @@ namespace Phnx.Domain.Entities
             string phoneNumber,
             ContactMethod preferredContactMethod,
             bool isPrimary,
-            string? title,
+            string title,
             string? notes)
         {
             ClientId = clientId;

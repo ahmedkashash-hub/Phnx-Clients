@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
@@ -21,43 +23,47 @@ public class UpdateContactCommand : IRequest
 
 public class UpdateContactCommandValidator : AbstractValidator<UpdateContactCommand>
 {
-    public UpdateContactCommandValidator()
+    public UpdateContactCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage("Id is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_ID_REQUIRED));
 
         RuleFor(x => x.ClientId)
             .NotEmpty()
-            .WithMessage("ClientId is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_CLIENT_ID_REQUIRED));
 
         RuleFor(x => x.FirstName)
             .NotEmpty()
-            .WithMessage("FirstName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_FIRST_NAME_REQUIRED));
 
         RuleFor(x => x.LastName)
             .NotEmpty()
-            .WithMessage("LastName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_LAST_NAME_REQUIRED));
 
         RuleFor(x => x.Email)
             .NotEmpty()
-            .WithMessage("Email is required.")
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_EMAIL_REQUIRED))
             .EmailAddress()
-            .WithMessage("Email format is invalid.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_EMAIL_INVALID));
 
         RuleFor(x => x.PhoneNumber)
             .NotEmpty()
-            .WithMessage("PhoneNumber is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_PHONE_REQUIRED));
+
+        RuleFor(x => x.Title)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_TITLE_REQUIRED));
     }
 }
 
-sealed class UpdateContactCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateContactCommand>
+sealed class UpdateContactCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService) : IRequestHandler<UpdateContactCommand>
 {
     public async Task Handle(UpdateContactCommand request, CancellationToken cancellationToken)
     {
         IGenericRepository<Contact> repository = unitOfWork.GenericRepository<Contact>();
         Contact contact = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException("Contact not found.");
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.CONTACT_NOT_FOUND));
 
         contact.Update(
             request.ClientId,
@@ -67,7 +73,7 @@ sealed class UpdateContactCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
             request.PhoneNumber,
             request.PreferredContactMethod,
             request.IsPrimary,
-            request.Title,
+            request.Title!,
             request.Notes);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);

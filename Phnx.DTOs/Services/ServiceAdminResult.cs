@@ -8,8 +8,8 @@ namespace Phnx.DTOs.Services
     {
         public string Name { get; init; } = entity.Name;
         public string? Description { get; init; } = entity.Description;
-        public string? Category { get; init; } = entity.Category;
-        public decimal? BaseRate { get; init; } = entity.BaseRate;
+        public string? IpAddress { get; init; } = entity.IpAddress;
+        public decimal? Provider { get; init; } = entity.Provider;
         public bool IsActive { get; init; } = entity.IsActive;
     }
 }

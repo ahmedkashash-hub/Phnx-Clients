@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Http.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi;
@@ -7,9 +8,11 @@ using Phnx.Infrastructure.Persistence.Database;
 using Phnx.Infrastructure.Persistence.Extensions;
 using Phnx.Infrastructure.Services;
 using Phnx_Clients.Extensions;
+using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Extensions;
 using Phoenix.Mediator.Web;
 using Scalar.AspNetCore;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -56,5 +59,66 @@ app.UseHttpsRedirection();
 app.UseCors("cors-policy");
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapEndpoints();
 app.Run();
+
+static List<string> ValidateRequiredNonNullableProperties(Type requestType, JsonElement root)
+{
+    List<string> errors = [];
+
+    if (root.ValueKind != JsonValueKind.Object)
+    {
+        errors.Add("Request body must be a JSON object.");
+        return errors;
+    }
+
+    NullabilityInfoContext nullabilityContext = new();
+
+    foreach (PropertyInfo property in requestType.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+    {
+        if (!property.CanWrite)
+            continue;
+
+        if (!IsRequiredNonNullableProperty(property, nullabilityContext))
+            continue;
+
+        string jsonPropertyName = property.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name
+            ?? JsonNamingPolicy.CamelCase.ConvertName(property.Name);
+
+        if (!root.TryGetProperty(jsonPropertyName, out JsonElement jsonValue))
+        {
+            errors.Add($"{property.Name} is required.");
+            continue;
+        }
+
+        if (jsonValue.ValueKind == JsonValueKind.Null)
+        {
+            errors.Add($"{property.Name} cannot be null.");
+            continue;
+        }
+
+        if (property.PropertyType == typeof(string) &&
+            jsonValue.ValueKind == JsonValueKind.String &&
+            string.IsNullOrWhiteSpace(jsonValue.GetString()))
+        {
+            errors.Add($"{property.Name} cannot be empty.");
+        }
+    }
+
+    return errors;
+}
+
+static bool IsRequiredNonNullableProperty(PropertyInfo property, NullabilityInfoContext nullabilityContext)
+{
+    Type propertyType = property.PropertyType;
+
+    if (Nullable.GetUnderlyingType(propertyType) is not null)
+        return false;
+
+    if (propertyType.IsValueType)
+        return true;
+
+    NullabilityInfo info = nullabilityContext.Create(property);
+    return info.ReadState == NullabilityState.NotNull || info.WriteState == NullabilityState.NotNull;
+}

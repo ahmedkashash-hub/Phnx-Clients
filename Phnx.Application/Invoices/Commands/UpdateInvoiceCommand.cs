@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
@@ -22,51 +24,51 @@ public class UpdateInvoiceCommand : IRequest
 
 public class UpdateInvoiceCommandValidator : AbstractValidator<UpdateInvoiceCommand>
 {
-    public UpdateInvoiceCommandValidator()
+    public UpdateInvoiceCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage("Id is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_ID_REQUIRED));
 
         RuleFor(x => x.ClientId)
             .NotEmpty()
-            .WithMessage("ClientId is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_CLIENT_ID_REQUIRED));
 
         RuleFor(x => x.IssueDate)
             .NotEmpty()
-            .WithMessage("IssueDate is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_ISSUE_DATE_REQUIRED));
 
         RuleFor(x => x.DueDate)
             .NotEmpty()
-            .WithMessage("DueDate is required.")
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_DUE_DATE_REQUIRED))
             .GreaterThanOrEqualTo(x => x.IssueDate)
-            .WithMessage("DueDate must be on or after IssueDate.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_DUE_DATE_INVALID));
 
         RuleFor(x => x.Subtotal)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Subtotal must be >= 0.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_SUBTOTAL_INVALID));
 
         RuleFor(x => x.Tax)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("Tax must be >= 0.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_TAX_INVALID));
 
         RuleFor(x => x.Total)
             .GreaterThan(0)
-            .WithMessage("Total must be > 0.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_TOTAL_INVALID));
 
         RuleFor(x => x.Currency)
             .NotEmpty()
-            .WithMessage("Currency is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_CURRENCY_REQUIRED));
     }
 }
 
-sealed class UpdateInvoiceCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateInvoiceCommand>
+sealed class UpdateInvoiceCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService) : IRequestHandler<UpdateInvoiceCommand>
 {
     public async Task Handle(UpdateInvoiceCommand request, CancellationToken cancellationToken)
     {
         IGenericRepository<Invoice> repository = unitOfWork.GenericRepository<Invoice>();
         Invoice invoice = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException("Invoice not found.");
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.INVOICE_NOT_FOUND));
 
         invoice.Update(
             request.ClientId,

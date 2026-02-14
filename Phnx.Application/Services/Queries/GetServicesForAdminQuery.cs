@@ -13,11 +13,13 @@ sealed class GetServicesForAdminQueryHandler(IUnitOfWork unitOfWork)
     public async Task<MultiResponse<ServiceAdminResult>> Handle(GetServicesForAdminQuery request, CancellationToken cancellationToken)
     {
         IGenericRepository<Service> repository = unitOfWork.GenericRepository<Service>();
+        bool hasProviderFilter = decimal.TryParse(request.Query, out decimal providerValue);
         Expression<Func<Service, bool>>? predicate = string.IsNullOrWhiteSpace(request.Query)
             ? null
             : x => x.Name.Contains(request.Query) ||
                    (x.Description != null && x.Description.Contains(request.Query)) ||
-                   (x.Category != null && x.Category.Contains(request.Query));
+                   (x.IpAddress != null && x.IpAddress.Contains(request.Query)) ||
+                   (hasProviderFilter && x.Provider == providerValue);
 
         (int totalCount, List<Service> services, List<AdminMiniResult> auditUsers) =
             await repository.GetPaginatedWithAudit(request.PageNum, request.PageSize, predicate, null, true, cancellationToken);

@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 
 namespace Phnx.Application.Contacts.Commands;
@@ -19,29 +21,33 @@ public class CreateContactCommand : IRequest
 
 public class CreateContactCommandValidator : AbstractValidator<CreateContactCommand>
 {
-    public CreateContactCommandValidator()
+    public CreateContactCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.ClientId)
             .NotEmpty()
-            .WithMessage("ClientId is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_CLIENT_ID_REQUIRED));
 
         RuleFor(x => x.FirstName)
             .NotEmpty()
-            .WithMessage("FirstName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_FIRST_NAME_REQUIRED));
 
         RuleFor(x => x.LastName)
             .NotEmpty()
-            .WithMessage("LastName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_LAST_NAME_REQUIRED));
 
         RuleFor(x => x.Email)
             .NotEmpty()
-            .WithMessage("Email is required.")
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_EMAIL_REQUIRED))
             .EmailAddress()
-            .WithMessage("Email format is invalid.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_EMAIL_INVALID));
 
         RuleFor(x => x.PhoneNumber)
             .NotEmpty()
-            .WithMessage("PhoneNumber is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_PHONE_REQUIRED));
+
+        RuleFor(x => x.Title)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_TITLE_REQUIRED));
     }
 }
 
@@ -59,7 +65,7 @@ sealed class CreateContactCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
             request.PhoneNumber,
             request.PreferredContactMethod,
             request.IsPrimary,
-            request.Title,
+            request.Title!,
             request.Notes);
 
         await repository.Create(contact, cancellationToken);

@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 
 namespace Phnx.Application.Leads.Commands;
@@ -20,29 +22,33 @@ public class CreateLeadCommand : IRequest
 
 public class CreateLeadCommandValidator : AbstractValidator<CreateLeadCommand>
 {
-    public CreateLeadCommandValidator()
+    public CreateLeadCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.CompanyName)
             .NotEmpty()
-            .WithMessage("CompanyName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_COMPANY_NAME_REQUIRED));
 
         RuleFor(x => x.ContactName)
             .NotEmpty()
-            .WithMessage("ContactName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_CONTACT_NAME_REQUIRED));
 
         RuleFor(x => x.Email)
             .NotEmpty()
-            .WithMessage("Email is required.")
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_EMAIL_REQUIRED))
             .EmailAddress()
-            .WithMessage("Email format is invalid.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_EMAIL_INVALID));
 
         RuleFor(x => x.PhoneNumber)
             .NotEmpty()
-            .WithMessage("PhoneNumber is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_PHONE_REQUIRED));
 
         RuleFor(x => x.Source)
             .NotEmpty()
-            .WithMessage("Source is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_SOURCE_REQUIRED));
+
+        RuleFor(x => x.Title)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_TITLE_REQUIRED));
     }
 }
 
@@ -61,7 +67,7 @@ sealed class CreateLeadCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<
             request.Status,
             request.Source,
             request.ExpectedValue,
-            request.Title,
+            request.Title!,
             request.Notes);
 
         await repository.Create(lead, cancellationToken);

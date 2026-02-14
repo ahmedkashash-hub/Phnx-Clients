@@ -68,7 +68,7 @@ sealed class UpdateUserCommandHandler(IUnitOfWork unitOfWork, ILanguageService l
             ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_NOT_FOUND));
 
         if (user.Email == User.AdminEmail)
-            throw new BadRequestException("Cannot update the admin user.");
+            throw new BadRequestException(languageService.GetMessage(LanguageConstants.USER_ADMIN_UPDATE_FORBIDDEN));
 
         user.Update(request.Name, request.Email, request.Permissions);
         await unitOfWork.SaveChangesAsync(cancellationToken);

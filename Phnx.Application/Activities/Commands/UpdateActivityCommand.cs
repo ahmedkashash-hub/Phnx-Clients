@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
@@ -21,40 +23,60 @@ public class UpdateActivityCommand : IRequest
 
 public class UpdateActivityCommandValidator : AbstractValidator<UpdateActivityCommand>
 {
-    public UpdateActivityCommandValidator()
+    public UpdateActivityCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage("Id is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.ACTIVITY_ID_REQUIRED));
 
         RuleFor(x => x.Subject)
             .NotEmpty()
-            .WithMessage("Subject is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.ACTIVITY_SUBJECT_REQUIRED));
 
         RuleFor(x => x.OccurredAt)
             .NotEmpty()
-            .WithMessage("OccurredAt is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.ACTIVITY_OCCURRED_AT_REQUIRED));
+
+        RuleFor(x => x.ClientId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+
+        RuleFor(x => x.LeadId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_ID_REQUIRED));
+
+        RuleFor(x => x.ContactId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_ID_REQUIRED));
+
+        RuleFor(x => x.ProjectId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
+
+        RuleFor(x => x.OwnerId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
     }
 }
 
-sealed class UpdateActivityCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateActivityCommand>
+sealed class UpdateActivityCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService) : IRequestHandler<UpdateActivityCommand>
 {
     public async Task Handle(UpdateActivityCommand request, CancellationToken cancellationToken)
     {
         IGenericRepository<Activity> repository = unitOfWork.GenericRepository<Activity>();
         Activity activity = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException("Activity not found.");
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.ACTIVITY_NOT_FOUND));
 
         activity.Update(
             request.Type,
             request.Subject,
             request.Notes,
             request.OccurredAt,
-            request.ClientId,
-            request.LeadId,
-            request.ContactId,
-            request.ProjectId,
-            request.OwnerId);
+            request.ClientId!.Value,
+            request.LeadId!.Value,
+            request.ContactId!.Value,
+            request.ProjectId!.Value,
+            request.OwnerId!.Value);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
     }

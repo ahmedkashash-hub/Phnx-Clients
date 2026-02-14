@@ -9,42 +9,42 @@ namespace Phnx.Domain.Entities
         private Service(
             string name,
             string? description,
-            string? category,
-            decimal? baseRate,
+            string? ipAddress,
+            decimal? provider,
             bool isActive)
         {
             Name = name;
             Description = description;
-            Category = category;
-            BaseRate = baseRate;
+            IpAddress = ipAddress;
+            Provider = provider;
             IsActive = isActive;
         }
 
         public static Service Create(
             string name,
             string? description,
-            string? category,
-            decimal? baseRate,
+            string? ipAddress,
+            decimal? provider,
             bool isActive)
-            => new(name, description, category, baseRate, isActive);
+            => new(name, description, ipAddress, provider, isActive);
 
         public string Name { get; private set; } = string.Empty;
         public string? Description { get; private set; }
-        public string? Category { get; private set; }
-        public decimal? BaseRate { get; private set; }
+        public string? IpAddress { get; private set; }
+        public decimal? Provider { get; private set; }
         public bool IsActive { get; private set; }
 
         public void Update(
             string name,
             string? description,
-            string? category,
-            decimal? baseRate,
+            string? ipAddress,
+            decimal? provider,
             bool isActive)
         {
             Name = name;
             Description = description;
-            Category = category;
-            BaseRate = baseRate;
+            IpAddress = ipAddress;
+            Provider = provider;
             IsActive = isActive;
         }
     }

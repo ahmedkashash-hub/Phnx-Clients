@@ -16,7 +16,7 @@ namespace Phnx.Domain.Entities
             LeadStatus status,
             string source,
             decimal? expectedValue,
-            string? title,
+            string title,
             string? notes)
         {
             CompanyName = companyName;
@@ -40,7 +40,7 @@ namespace Phnx.Domain.Entities
             LeadStatus status,
             string source,
             decimal? expectedValue,
-            string? title,
+            string title,
             string? notes)
             => new Lead(companyName, contactName, email, phoneNumber, preferredContactMethod, status, source, expectedValue, title, notes);
 
@@ -52,7 +52,7 @@ namespace Phnx.Domain.Entities
         public LeadStatus Status { get; private set; } = LeadStatus.New;
         public string Source { get; private set; } = string.Empty;
         public decimal? ExpectedValue { get; private set; }
-        public string? Title { get; private set; }
+        public string Title { get; private set; }
         public string? Notes { get; private set; }
         public Guid? ConvertedClientId { get; private set; }
         public DateTime? ConvertedDate { get; private set; }
@@ -66,7 +66,7 @@ namespace Phnx.Domain.Entities
             LeadStatus status,
             string source,
             decimal? expectedValue,
-            string? title,
+            string title,
             string? notes)
         {
             CompanyName = companyName;

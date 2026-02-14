@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
@@ -22,43 +24,47 @@ public class UpdateLeadCommand : IRequest
 
 public class UpdateLeadCommandValidator : AbstractValidator<UpdateLeadCommand>
 {
-    public UpdateLeadCommandValidator()
+    public UpdateLeadCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Id)
             .NotEmpty()
-            .WithMessage("Id is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_ID_REQUIRED));
 
         RuleFor(x => x.CompanyName)
             .NotEmpty()
-            .WithMessage("CompanyName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_COMPANY_NAME_REQUIRED));
 
         RuleFor(x => x.ContactName)
             .NotEmpty()
-            .WithMessage("ContactName is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_CONTACT_NAME_REQUIRED));
 
         RuleFor(x => x.Email)
             .NotEmpty()
-            .WithMessage("Email is required.")
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_EMAIL_REQUIRED))
             .EmailAddress()
-            .WithMessage("Email format is invalid.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_EMAIL_INVALID));
 
         RuleFor(x => x.PhoneNumber)
             .NotEmpty()
-            .WithMessage("PhoneNumber is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_PHONE_REQUIRED));
 
         RuleFor(x => x.Source)
             .NotEmpty()
-            .WithMessage("Source is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_SOURCE_REQUIRED));
+
+        RuleFor(x => x.Title)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_TITLE_REQUIRED));
     }
 }
 
-sealed class UpdateLeadCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<UpdateLeadCommand>
+sealed class UpdateLeadCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService) : IRequestHandler<UpdateLeadCommand>
 {
     public async Task Handle(UpdateLeadCommand request, CancellationToken cancellationToken)
     {
         IGenericRepository<Lead> repository = unitOfWork.GenericRepository<Lead>();
         Lead lead = await repository.GetById(request.Id, cancellationToken)
-            ?? throw new NotFoundException("Lead not found.");
+            ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.LEAD_NOT_FOUND));
 
         lead.Update(
             request.CompanyName,
@@ -69,7 +75,7 @@ sealed class UpdateLeadCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<
             request.Status,
             request.Source,
             request.ExpectedValue,
-            request.Title,
+            request.Title!,
             request.Notes);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);

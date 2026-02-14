@@ -1,5 +1,7 @@
 using FluentValidation;
+using Phnx.Contracts;
 using Phnx.Domain.Enums;
+using Phnx.Shared.Constants;
 using DomainTaskStatus = Phnx.Domain.Enums.TaskStatus;
 using Phoenix.Mediator.Abstractions;
 
@@ -19,11 +21,23 @@ public class CreateAgencyTaskCommand : IRequest
 
 public class CreateAgencyTaskCommandValidator : AbstractValidator<CreateAgencyTaskCommand>
 {
-    public CreateAgencyTaskCommandValidator()
+    public CreateAgencyTaskCommandValidator(ILanguageService languageService)
     {
         RuleFor(x => x.Title)
             .NotEmpty()
-            .WithMessage("Title is required.");
+            .WithMessage(languageService.GetMessage(LanguageConstants.TASK_TITLE_REQUIRED));
+
+        RuleFor(x => x.AssignedToId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+
+        RuleFor(x => x.ClientId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+
+        RuleFor(x => x.ProjectId)
+            .NotEmpty()
+            .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
     }
 }
 
@@ -39,9 +53,9 @@ sealed class CreateAgencyTaskCommandHandler(IUnitOfWork unitOfWork) : IRequestHa
             request.DueDate,
             request.Status,
             request.Priority,
-            request.AssignedToId,
-            request.ClientId,
-            request.ProjectId);
+            request.AssignedToId!.Value,
+            request.ClientId!.Value,
+            request.ProjectId!.Value);
 
         await repository.Create(task, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);

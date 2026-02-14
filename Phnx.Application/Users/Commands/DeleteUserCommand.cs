@@ -30,7 +30,7 @@ sealed class DeleteUserCommandHandler(IUnitOfWork unitOfWork, ILanguageService l
         User? user = await userRepository.GetById(request.Id, cancellationToken)
             ?? throw new NotFoundException(languageService.GetMessage(LanguageConstants.USER_NOT_FOUND));
 
-
+       
         userRepository.Delete(user);
         await unitOfWork.SaveChangesAsync(cancellationToken);
     }

@@ -17,8 +17,8 @@ namespace Phnx.Domain.Entities
             DateTime dueDate,
             string method,
             Guid clientId,
-            Guid? projectId,
-            Guid? invoiceId,
+            Guid projectId,
+            Guid invoiceId,
             string? transactionReference)
         {
             PaymentType = paymentType;
@@ -38,8 +38,8 @@ namespace Phnx.Domain.Entities
             DateTime dueDate,
             string method,
             Guid clientId,
-            Guid? projectId,
-            Guid? invoiceId,
+            Guid projectId,
+            Guid invoiceId,
             string? transactionReference = null)
             => new(paymentType, amount, dueDate, method, clientId, projectId, invoiceId, transactionReference);
 
@@ -50,8 +50,8 @@ namespace Phnx.Domain.Entities
         public PaymentStatus Status { get; private set; }
         public string Method { get; private set; } = string.Empty;
         public Guid ClientId { get; private set; }
-        public Guid? ProjectId { get; private set; }
-        public Guid? InvoiceId { get; private set; }
+        public Guid ProjectId { get; private set; }
+        public Guid InvoiceId { get; private set; }
         public string? TransactionReference { get; private set; }
 
         public void Update(
@@ -60,8 +60,8 @@ namespace Phnx.Domain.Entities
             DateTime dueDate,
             string method,
             Guid clientId,
-            Guid? projectId,
-            Guid? invoiceId,
+            Guid projectId,
+            Guid invoiceId,
             string? transactionReference)
         {
             PaymentType = paymentType;

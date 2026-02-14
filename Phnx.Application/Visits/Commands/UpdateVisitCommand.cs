@@ -4,6 +4,7 @@ using Phnx.Domain.Common;
 using Phnx.Domain.Entities;
 using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
+using Phoenix.Mediator.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,7 +36,7 @@ namespace Phnx.Application.Visits.Commands
         }
     }
 
-    sealed class UpdateVisitCommandHandler(IUnitOfWork unitOfWork)
+    sealed class UpdateVisitCommandHandler(IUnitOfWork unitOfWork, ILanguageService languageService)
         : IRequestHandler<UpdateVisitCommand>
     {
         public async Task Handle(UpdateVisitCommand request, CancellationToken cancellationToken)
@@ -46,7 +47,7 @@ namespace Phnx.Application.Visits.Commands
             Visit? visit = await visitRepository.GetById(request.Id, cancellationToken);
 
             if (visit is null)
-                throw new Exception("Visit not found");
+                throw new NotFoundException(languageService.GetMessage(LanguageConstants.VISIT_NOT_FOUND));
 
             visit.Update(
                 request.ClientId,
