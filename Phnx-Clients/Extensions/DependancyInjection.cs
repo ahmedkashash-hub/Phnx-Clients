@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Phnx.Contracts;
 using Phnx_Clients.Services;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 
 namespace Phnx_Clients.Extensions
@@ -13,6 +14,11 @@ namespace Phnx_Clients.Extensions
     {
         public static IServiceCollection AddWebapiServices(this IServiceCollection services, IConfiguration configuration)
         {
+            services.ConfigureHttpJsonOptions(options =>
+            {
+                options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
+
             services.AddRateLimiter(options =>
             {
                 options.AddPolicy("otpRateLimit", context =>

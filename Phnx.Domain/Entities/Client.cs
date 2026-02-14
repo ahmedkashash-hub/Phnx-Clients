@@ -1,20 +1,15 @@
-﻿using Phnx.Domain.Common;
+using Phnx.Domain.Common;
 using Phnx.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Phnx.Domain.Entities
 {
-
-  
     public class Client : BaseDeletableEntity
     {
         private Client() { }
 
         private Client(
             string name,
-            string entityName,
+            string companyName,
             string location,
             string phoneNumber,
             string email,
@@ -25,7 +20,7 @@ namespace Phnx.Domain.Entities
             string? notes)
         {
             Name = name;
-            this.EntityName = EntityName;
+            CompanyName = companyName;
             Location = location;
             PhoneNumber = phoneNumber;
             Email = email;
@@ -38,7 +33,7 @@ namespace Phnx.Domain.Entities
 
         public static Client Create(
             string name,
-            string entityName,
+            string companyName,
             string location,
             string phoneNumber,
             string email,
@@ -47,11 +42,10 @@ namespace Phnx.Domain.Entities
             ClientStatus status,
             string? website,
             string? notes)
-            => new Client(name, entityName, location, phoneNumber, email, expiryDate, preferredContactMethod, status, website, notes);
-
+            => new(name, companyName, location, phoneNumber, email, expiryDate, preferredContactMethod, status, website, notes);
 
         public string Name { get; private set; } = string.Empty;
-        public string EntityName { get; private set; } = string.Empty;
+        public string CompanyName { get; private set; } = string.Empty;
         public string PhoneNumber { get; private set; } = string.Empty;
         public string Location { get; private set; } = string.Empty;
         public string Email { get; private set; } = string.Empty;
@@ -74,7 +68,7 @@ namespace Phnx.Domain.Entities
             string? notes)
         {
             Name = name;
-            EntityName = companyName;
+            CompanyName = companyName;
             Location = location;
             PhoneNumber = phoneNumber;
             Email = email;
@@ -85,6 +79,4 @@ namespace Phnx.Domain.Entities
             Notes = notes;
         }
     }
-
-
 }

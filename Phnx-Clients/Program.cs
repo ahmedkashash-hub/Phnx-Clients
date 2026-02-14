@@ -53,7 +53,7 @@ app.UseStaticFiles(new StaticFileOptions
 });
 app.UseRateLimiter();
 app.UseHttpsRedirection();
-app.UseCors("Allowdashboard");
+app.UseCors("cors-policy");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapEndpoints();

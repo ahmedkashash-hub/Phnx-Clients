@@ -1,4 +1,4 @@
-﻿
+
 using Phnx.Domain.Common;
 using Phnx.Domain.Entities;
 using Phnx.DTOs.Users;
@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Phnx.Application.Users.Queries;
 
-public record GetUsersForAdminQuery(int PageNum,int PageSize,string? Query) : IPagedRequest<UserAdminResult>;
+public record GetUsersForAdminQuery(int PageNum = 1, int PageSize = 20, string? Query = null) : IPagedRequest<UserAdminResult>;
 sealed class GetUsersForAdminQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetUsersForAdminQuery, MultiResponse<UserAdminResult>>
 {
     public async Task<MultiResponse<UserAdminResult>> Handle(GetUsersForAdminQuery request, CancellationToken cancellationToken)

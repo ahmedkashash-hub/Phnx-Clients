@@ -1,59 +1,39 @@
-﻿using Phnx.Domain.Common;
-using Phnx.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Phnx.Domain.Common;
 
 namespace Phnx.Domain.Entities
 {
-  
+    public class Visit : BaseDeletableEntity
+    {
+        private Visit() { }
 
-        public class Visit : BaseDeletableEntity
+        private Visit(
+            Guid clientId,
+            DateTime visitTime,
+            string note)
         {
-            private Visit() { }
-            private Visit(
-                Guid clientId,
-                Guid projectId,
-                DateTime timeVisit,
-                string note)
-
-            {
-            Note = note;
-            ProjectId= projectId;
-            VisitTime = timeVisit;
             ClientId = clientId;
-           
+            VisitTime = visitTime;
+            Note = note;
         }
 
-            public static Visit Create(
-                 Guid clientId,
-                 Guid projectId,
-                DateTime timeVisit,
-                string note)
-                 => new (clientId, projectId, timeVisit, note);
-               
-               
+        public static Visit Create(
+            Guid clientId,
+            DateTime visitTime,
+            string note)
+            => new(clientId, visitTime, note);
 
-            public Guid ClientId { get; private set; }
-            public Guid ProjectId { get; private set; }
-        public DateTime VisitTime { get; private set; } = DateTime.Now;
-            public string Note { get; private set; }=string.Empty;
-
-
+        public Guid ClientId { get; private set; }
+        public DateTime VisitTime { get; private set; } = DateTime.UtcNow;
+        public string Note { get; private set; } = string.Empty;
 
         public void Update(
-               Guid clientId,
-               Guid projectId,
-                DateTime timeVisit,
-                string note)
-            {
-                ClientId = clientId;
-            ProjectId = projectId;
-            VisitTime = timeVisit;
-                Note = note;
-
-        }
-
-         
+            Guid clientId,
+            DateTime visitTime,
+            string note)
+        {
+            ClientId = clientId;
+            VisitTime = visitTime;
+            Note = note;
         }
     }
+}

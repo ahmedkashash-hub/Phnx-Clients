@@ -160,6 +160,10 @@ namespace Phnx.Infrastructure.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Invoices", x => x.Id);
+                    table.CheckConstraint("CK_Invoices_Subtotal_NonNegative", "\"Subtotal\" >= 0");
+                    table.CheckConstraint("CK_Invoices_Tax_NonNegative", "\"Tax\" >= 0");
+                    table.CheckConstraint("CK_Invoices_Total_Positive", "\"Total\" > 0");
+                    table.CheckConstraint("CK_Invoices_DueDate_AfterIssueDate", "\"DueDate\" >= \"IssueDate\"");
                 });
 
             migrationBuilder.CreateTable(
@@ -222,6 +226,8 @@ namespace Phnx.Infrastructure.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Opportunities", x => x.Id);
+                    table.CheckConstraint("CK_Opportunities_Probability_Range", "\"Probability\" >= 0 AND \"Probability\" <= 100");
+                    table.CheckConstraint("CK_Opportunities_Value_NonNegative", "\"Value\" >= 0");
                 });
 
             migrationBuilder.CreateTable(
@@ -253,6 +259,7 @@ namespace Phnx.Infrastructure.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Payments", x => x.Id);
+                    table.CheckConstraint("CK_Payments_Amount_Positive", "\"Amount\" > 0");
                 });
 
             migrationBuilder.CreateTable(
@@ -373,14 +380,69 @@ namespace Phnx.Infrastructure.Persistence.Migrations
                 column: "Email");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Contacts_ClientId",
+                table: "Contacts",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invoices_ClientId",
+                table: "Invoices",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invoices_ProjectId",
+                table: "Invoices",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Leads_Email",
                 table: "Leads",
                 column: "Email");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Leads_ConvertedClientId",
+                table: "Leads",
+                column: "ConvertedClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Opportunities_ClientId",
+                table: "Opportunities",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Opportunities_LeadId",
+                table: "Opportunities",
+                column: "LeadId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payments_ClientId",
+                table: "Payments",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payments_ProjectId",
+                table: "Payments",
+                column: "ProjectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Payments_InvoiceId",
+                table: "Payments",
+                column: "InvoiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Projects_ClientId",
+                table: "Projects",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
                 table: "Users",
                 column: "Email");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_ClientId",
+                table: "Visits",
+                column: "ClientId");
         }
 
         /// <inheritdoc />

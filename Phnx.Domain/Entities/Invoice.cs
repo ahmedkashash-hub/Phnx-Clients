@@ -13,7 +13,7 @@ namespace Phnx.Domain.Entities
             DateTime issueDate,
             DateTime dueDate,
             decimal subtotal,
-            
+            decimal tax,
             decimal total,
             string currency,
             InvoiceStatus status,
@@ -24,7 +24,7 @@ namespace Phnx.Domain.Entities
             IssueDate = issueDate;
             DueDate = dueDate;
             Subtotal = subtotal;
-            
+            Tax = tax;
             Total = total;
             Currency = currency;
             Status = status;
@@ -37,18 +37,19 @@ namespace Phnx.Domain.Entities
             DateTime issueDate,
             DateTime dueDate,
             decimal subtotal,
-           
+            decimal tax,
             decimal total,
             string currency,
             InvoiceStatus status,
             string? notes)
-            => new Invoice(clientId, projectId, issueDate, dueDate, subtotal, total, currency, status, notes);
+            => new(clientId, projectId, issueDate, dueDate, subtotal, tax, total, currency, status, notes);
 
         public Guid ClientId { get; private set; }
         public Guid? ProjectId { get; private set; }
         public DateTime IssueDate { get; private set; }
         public DateTime DueDate { get; private set; }
         public decimal Subtotal { get; private set; }
+        public decimal Tax { get; private set; }
         public decimal Total { get; private set; }
         public string Currency { get; private set; } = "USD";
         public InvoiceStatus Status { get; private set; } = InvoiceStatus.Draft;
@@ -60,7 +61,7 @@ namespace Phnx.Domain.Entities
             DateTime issueDate,
             DateTime dueDate,
             decimal subtotal,
-           
+            decimal tax,
             decimal total,
             string currency,
             InvoiceStatus status,
@@ -71,7 +72,7 @@ namespace Phnx.Domain.Entities
             IssueDate = issueDate;
             DueDate = dueDate;
             Subtotal = subtotal;
-         
+            Tax = tax;
             Total = total;
             Currency = currency;
             Status = status;

@@ -1,19 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Payments\Queries\**" />
-    <Compile Remove="Projects\Queries\**" />
-    <EmbeddedResource Remove="Payments\Queries\**" />
-    <EmbeddedResource Remove="Projects\Queries\**" />
-    <None Remove="Payments\Queries\**" />
-    <None Remove="Projects\Queries\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Phoenix.Mediator" Version="1.1.0-preview.8" />
@@ -23,10 +14,6 @@
     <ProjectReference Include="..\Phnx.Contracts\Phnx.Contracts.csproj" />
     <ProjectReference Include="..\Phnx.DTOs\Phnx.DTOs.csproj" />
     <ProjectReference Include="..\Phnx.Shared\Phnx.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Visits\Queries\" />
   </ItemGroup>
 
 </Project>
