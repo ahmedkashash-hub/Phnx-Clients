@@ -61,7 +61,43 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to أدخل اسم الشركة.
+        ///   Looks up a localized string similar to معرّف النشاط مطلوب..
+        /// </summary>
+        public static string ACTIVITY_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("ACTIVITY_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to النشاط غير موجود..
+        /// </summary>
+        public static string ACTIVITY_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("ACTIVITY_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to وقت حدوث النشاط مطلوب..
+        /// </summary>
+        public static string ACTIVITY_OCCURRED_AT_REQUIRED {
+            get {
+                return ResourceManager.GetString("ACTIVITY_OCCURRED_AT_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to موضوع النشاط مطلوب..
+        /// </summary>
+        public static string ACTIVITY_SUBJECT_REQUIRED {
+            get {
+                return ResourceManager.GetString("ACTIVITY_SUBJECT_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم شركة العميل مطلوب..
         /// </summary>
         public static string CLIENT_COMPANTNAME_REQUIRED {
             get {
@@ -70,7 +106,25 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى أدخال  معرف المستخدم.
+        ///   Looks up a localized string similar to اسم شركة العميل مطلوب..
+        /// </summary>
+        public static string CLIENT_COMPANYNAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CLIENT_COMPANYNAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تاريخ انتهاء صلاحية العميل مطلوب..
+        /// </summary>
+        public static string CLIENT_EXPIRY_DATE_REQUIRED {
+            get {
+                return ResourceManager.GetString("CLIENT_EXPIRY_DATE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف العميل مطلوب..
         /// </summary>
         public static string CLIENT_ID_REQUIRED {
             get {
@@ -79,7 +133,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة اسم العميل.
+        ///   Looks up a localized string similar to اسم العميل مطلوب..
         /// </summary>
         public static string CLIENT_NAME_REQUIRED {
             get {
@@ -88,7 +142,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to العميل غير موجود.
+        ///   Looks up a localized string similar to العميل غير موجود..
         /// </summary>
         public static string CLIENT_NOT_FOUND {
             get {
@@ -97,7 +151,88 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى كتابة كلمة السر.
+        ///   Looks up a localized string similar to معرّف العميل مطلوب..
+        /// </summary>
+        public static string CONTACT_CLIENT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_CLIENT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to البريد الإلكتروني لجهة الاتصال غير صالح..
+        /// </summary>
+        public static string CONTACT_EMAIL_INVALID {
+            get {
+                return ResourceManager.GetString("CONTACT_EMAIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to البريد الإلكتروني لجهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_EMAIL_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_EMAIL_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الاسم الأول لجهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_FIRST_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_FIRST_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف جهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم العائلة لجهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_LAST_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_LAST_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to جهة الاتصال غير موجودة..
+        /// </summary>
+        public static string CONTACT_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("CONTACT_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to رقم هاتف جهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_PHONE_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_PHONE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to المسمى الوظيفي لجهة الاتصال مطلوب..
+        /// </summary>
+        public static string CONTACT_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("CONTACT_TITLE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to كلمة المرور مطلوبة..
         /// </summary>
         public static string EMPTY_PASSWORD {
             get {
@@ -106,7 +241,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to انتهت صلاحية الجلسة.
+        ///   Looks up a localized string similar to انتهت صلاحية الجلسة..
         /// </summary>
         public static string EXPIRED_SESSION {
             get {
@@ -115,7 +250,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة الصورة.
+        ///   Looks up a localized string similar to الصورة مطلوبة..
         /// </summary>
         public static string IMAGE_REQUIRED {
             get {
@@ -124,7 +259,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to بيانات الاعتماد غير صحيحة.
+        ///   Looks up a localized string similar to بيانات تسجيل الدخول غير صحيحة..
         /// </summary>
         public static string INVALID_CREDENTIALS {
             get {
@@ -133,7 +268,223 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى أدخال المبلغ .
+        ///   Looks up a localized string similar to معرّف العميل مطلوب..
+        /// </summary>
+        public static string INVOICE_CLIENT_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("INVOICE_CLIENT_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to عملة الفاتورة مطلوبة..
+        /// </summary>
+        public static string INVOICE_CURRENCY_REQUIRED {
+            get {
+                return ResourceManager.GetString("INVOICE_CURRENCY_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تاريخ استحقاق الفاتورة يجب أن يكون بعد تاريخ الإصدار..
+        /// </summary>
+        public static string INVOICE_DUE_DATE_INVALID {
+            get {
+                return ResourceManager.GetString("INVOICE_DUE_DATE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تاريخ استحقاق الفاتورة مطلوب..
+        /// </summary>
+        public static string INVOICE_DUE_DATE_REQUIRED {
+            get {
+                return ResourceManager.GetString("INVOICE_DUE_DATE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف الفاتورة مطلوب..
+        /// </summary>
+        public static string INVOICE_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("INVOICE_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تاريخ إصدار الفاتورة مطلوب..
+        /// </summary>
+        public static string INVOICE_ISSUE_DATE_REQUIRED {
+            get {
+                return ResourceManager.GetString("INVOICE_ISSUE_DATE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الفاتورة غير موجودة..
+        /// </summary>
+        public static string INVOICE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("INVOICE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to المجموع الفرعي للفاتورة يجب أن يكون أكبر من أو يساوي صفرًا..
+        /// </summary>
+        public static string INVOICE_SUBTOTAL_INVALID {
+            get {
+                return ResourceManager.GetString("INVOICE_SUBTOTAL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ضريبة الفاتورة يجب أن تكون أكبر من أو تساوي صفرًا..
+        /// </summary>
+        public static string INVOICE_TAX_INVALID {
+            get {
+                return ResourceManager.GetString("INVOICE_TAX_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to إجمالي الفاتورة يجب أن يكون أكبر من أو يساوي صفرًا..
+        /// </summary>
+        public static string INVOICE_TOTAL_INVALID {
+            get {
+                return ResourceManager.GetString("INVOICE_TOTAL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم شركة العميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_COMPANY_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_COMPANY_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم جهة الاتصال للعميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_CONTACT_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_CONTACT_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to البريد الإلكتروني للعميل المحتمل غير صالح..
+        /// </summary>
+        public static string LEAD_EMAIL_INVALID {
+            get {
+                return ResourceManager.GetString("LEAD_EMAIL_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to البريد الإلكتروني للعميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_EMAIL_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_EMAIL_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف العميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to العميل المحتمل غير موجود..
+        /// </summary>
+        public static string LEAD_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("LEAD_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to رقم هاتف العميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_PHONE_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_PHONE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مصدر العميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_SOURCE_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_SOURCE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to المسمى الوظيفي للعميل المحتمل مطلوب..
+        /// </summary>
+        public static string LEAD_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("LEAD_TITLE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف الفرصة مطلوب..
+        /// </summary>
+        public static string OPPORTUNITY_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم الفرصة مطلوب..
+        /// </summary>
+        public static string OPPORTUNITY_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الفرصة غير موجودة..
+        /// </summary>
+        public static string OPPORTUNITY_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to نسبة احتمال الفرصة يجب أن تكون بين 0 و100..
+        /// </summary>
+        public static string OPPORTUNITY_PROBABILITY_INVALID {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_PROBABILITY_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to قيمة الفرصة يجب أن تكون أكبر من أو تساوي صفرًا..
+        /// </summary>
+        public static string OPPORTUNITY_VALUE_INVALID {
+            get {
+                return ResourceManager.GetString("OPPORTUNITY_VALUE_INVALID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to مبلغ الدفعة مطلوب..
         /// </summary>
         public static string PAYMENT_AMOUNT_REQUIRED {
             get {
@@ -142,7 +493,16 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى أدخال  معرف الدفع.
+        ///   Looks up a localized string similar to تاريخ استحقاق الدفعة مطلوب..
+        /// </summary>
+        public static string PAYMENT_DUE_DATE_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_DUE_DATE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف الدفعة مطلوب..
         /// </summary>
         public static string PAYMENT_ID_REQUIRED {
             get {
@@ -151,7 +511,16 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الجلسة مفقودة.
+        ///   Looks up a localized string similar to طريقة الدفع مطلوبة..
+        /// </summary>
+        public static string PAYMENT_METHOD_REQUIRED {
+            get {
+                return ResourceManager.GetString("PAYMENT_METHOD_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الدفعة غير موجودة..
         /// </summary>
         public static string PAYMENT_NOT_FOUND {
             get {
@@ -160,7 +529,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى ادخال طريقة الدفع.
+        ///   Looks up a localized string similar to نوع الدفعة مطلوب..
         /// </summary>
         public static string PAYMENT_TYPE_REQUIRED {
             get {
@@ -169,7 +538,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة وصف عن المشروع.
+        ///   Looks up a localized string similar to وصف المشروع مطلوب..
         /// </summary>
         public static string PROJECT_DESCRIPTION_REQUIRED {
             get {
@@ -178,7 +547,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة معرف المشروع.
+        ///   Looks up a localized string similar to معرّف المشروع مطلوب..
         /// </summary>
         public static string PROJECT_ID_REQUIRED {
             get {
@@ -187,7 +556,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة أسم المشروع.
+        ///   Looks up a localized string similar to اسم المشروع مطلوب..
         /// </summary>
         public static string PROJECT_NAME_REQUIRED {
             get {
@@ -196,7 +565,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to المشروع مفقود.
+        ///   Looks up a localized string similar to المشروع غير موجود..
         /// </summary>
         public static string PROJECT_NOT_FOUND {
             get {
@@ -205,7 +574,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لم يتم توفير رمز التحديث.
+        ///   Looks up a localized string similar to لم يتم توفير رمز التحديث..
         /// </summary>
         public static string REFRESH_TOKEN_NOT_PROVIDED {
             get {
@@ -214,7 +583,61 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لم يتم توفير الرمز المميز.
+        ///   Looks up a localized string similar to معرّف الخدمة مطلوب..
+        /// </summary>
+        public static string SERVICE_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("SERVICE_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to اسم الخدمة مطلوب..
+        /// </summary>
+        public static string SERVICE_NAME_REQUIRED {
+            get {
+                return ResourceManager.GetString("SERVICE_NAME_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to الخدمة غير موجودة..
+        /// </summary>
+        public static string SERVICE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("SERVICE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to معرّف المهمة مطلوب..
+        /// </summary>
+        public static string TASK_ID_REQUIRED {
+            get {
+                return ResourceManager.GetString("TASK_ID_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to المهمة غير موجودة..
+        /// </summary>
+        public static string TASK_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("TASK_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to عنوان المهمة مطلوب..
+        /// </summary>
+        public static string TASK_TITLE_REQUIRED {
+            get {
+                return ResourceManager.GetString("TASK_TITLE_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لم يتم توفير رمز الوصول..
         /// </summary>
         public static string TOKEN_NOT_PROVIDED {
             get {
@@ -223,7 +646,25 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to البريد الإلكتروني موجود بالفعل.
+        ///   Looks up a localized string similar to لا يمكن حذف المستخدم المسؤول..
+        /// </summary>
+        public static string USER_ADMIN_DELETE_FORBIDDEN {
+            get {
+                return ResourceManager.GetString("USER_ADMIN_DELETE_FORBIDDEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لا يمكن تعديل المستخدم المسؤول..
+        /// </summary>
+        public static string USER_ADMIN_UPDATE_FORBIDDEN {
+            get {
+                return ResourceManager.GetString("USER_ADMIN_UPDATE_FORBIDDEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to البريد الإلكتروني مستخدم بالفعل..
         /// </summary>
         public static string USER_EMAIL_ALREADY_EXISTS {
             get {
@@ -232,7 +673,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to البريد الإلكتروني غير صحيح.
+        ///   Looks up a localized string similar to البريد الإلكتروني غير صالح..
         /// </summary>
         public static string USER_EMAIL_INVALID {
             get {
@@ -241,7 +682,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة البريد الإلكتروني.
+        ///   Looks up a localized string similar to البريد الإلكتروني مطلوب..
         /// </summary>
         public static string USER_EMAIL_REQUIRED {
             get {
@@ -250,7 +691,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة معرف المستخدم.
+        ///   Looks up a localized string similar to معرّف المستخدم مطلوب..
         /// </summary>
         public static string USER_ID_REQUIRED {
             get {
@@ -259,7 +700,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة اسم المستخدم.
+        ///   Looks up a localized string similar to اسم المستخدم مطلوب..
         /// </summary>
         public static string USER_NAME_REQUIRED {
             get {
@@ -268,7 +709,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to المستخدم غير موجود.
+        ///   Looks up a localized string similar to المستخدم غير موجود..
         /// </summary>
         public static string USER_NOT_FOUND {
             get {
@@ -277,7 +718,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى إضافة كلمة السر.
+        ///   Looks up a localized string similar to كلمة المرور مطلوبة..
         /// </summary>
         public static string USER_PASSWORD_REQUIRED {
             get {
@@ -286,7 +727,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الصلاحيات غير صحيحة.
+        ///   Looks up a localized string similar to الصلاحيات غير صالحة..
         /// </summary>
         public static string USER_PERMISSIONS_INVALID {
             get {
@@ -295,7 +736,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى أدخال  معرف الزيارة.
+        ///   Looks up a localized string similar to معرّف الزيارة مطلوب..
         /// </summary>
         public static string Visit_ID_REQUIRED {
             get {
@@ -304,7 +745,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الزيارة غير موجودة.
+        ///   Looks up a localized string similar to الزيارة غير موجودة..
         /// </summary>
         public static string VISIT_NOT_FOUND {
             get {
@@ -313,7 +754,7 @@ namespace Phnx.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to يرجى أدخال  وقت الزيارة.
+        ///   Looks up a localized string similar to وقت الزيارة مطلوب..
         /// </summary>
         public static string VISIT_TIME_REQUIRED {
             get {
