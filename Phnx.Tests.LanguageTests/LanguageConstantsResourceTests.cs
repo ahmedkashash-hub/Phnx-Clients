@@ -1,14 +1,15 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Resources;
-using Airport.Shared.Constants;
+using NUnit.Framework;
+using Phnx.Shared.Constants;
 
-namespace Airport.Tests.LanguageTests;
+namespace Phnx.Tests.LanguageTests;
 
 public class LanguageConstantsResourceTests
 {
-    private const string ResourceBaseName = "Airport.Shared.Resources.Language";
+    private const string ResourceBaseName = "Phnx.Shared.Resources.Language";
 
-    [Fact]
+    [Test]
     public void AllLanguageConstants_ShouldExistInResourceFile()
     {
         var resourceManager = new ResourceManager(ResourceBaseName, typeof(LanguageConstants).Assembly);
@@ -39,14 +40,14 @@ public class LanguageConstantsResourceTests
             }
         }
 
-        Assert.True(
+        Assert.That(
             missingKeys.Count == 0,
             $"Missing resource keys ({missingKeys.Count}/{allKeys.Count}):\n" +
             $"{string.Join("\n", missingKeys.Select(k => $"  - {k}"))}"
         );
     }
 
-    [Fact]
+    [Test]
     public void AllLanguageConstants_ShouldHaveNonEmptyValues()
     {
         var resourceManager = new ResourceManager(ResourceBaseName, typeof(LanguageConstants).Assembly);
@@ -73,14 +74,14 @@ public class LanguageConstantsResourceTests
             }
         }
 
-        Assert.True(
+        Assert.That(
             emptyValueKeys.Count == 0,
             $"Keys with empty or whitespace values:\n" +
             $"{string.Join("\n", emptyValueKeys.Select(k => $"  - {k}"))}"
         );
     }
 
-    [Fact]
+    [Test]
     public void LanguageConstants_ShouldFollowNamingConvention()
     {
         var constantFields = GetAllLanguageConstantFields();
@@ -97,14 +98,14 @@ public class LanguageConstantsResourceTests
             }
         }
 
-        Assert.True(
+        Assert.That(
             invalidConstants.Count == 0,
             $"Constants not following nameof() pattern:\n" +
             $"{string.Join("\n", invalidConstants.Select(c => $"  - {c}"))}"
         );
     }
 
-    [Fact]
+    [Test]
     public void LanguageConstants_ShouldHaveUniqueValues()
     {
         var constantFields = GetAllLanguageConstantFields();
@@ -121,13 +122,12 @@ public class LanguageConstantsResourceTests
             duplicates.Add($"Value '{group.Key}' used by: {fields}");
         }
 
-        Assert.True(
+        Assert.That(
             duplicates.Count == 0,
             $"Duplicate constant values found:\n" +
             $"{string.Join("\n", duplicates.Select(d => $"  - {d}"))}"
         );
     }
-
 
     private static IEnumerable<FieldInfo> GetAllLanguageConstantFields()
     {

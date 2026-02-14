@@ -14,7 +14,7 @@ namespace Phnx.Application.Visits.Commands
     public class UpdateVisitCommand : IRequest
     {
         public Guid Id { get; set; }
-        public int ClientId { get; set; }
+        public Guid ClientId { get; set; }
         public DateTime VisitTime { get; set; }
         public string Note { get; set; } = string.Empty;
     }
@@ -30,7 +30,7 @@ namespace Phnx.Application.Visits.Commands
                 .WithMessage(languageService.GetMessage(LanguageConstants.Visit_ID_REQUIRED));
 
             RuleFor(x => x.ClientId)
-                .GreaterThan(0)
+                .NotEmpty()
                 .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
         }
     }

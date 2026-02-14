@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Airport.Application.Users.Queries;
+namespace Phnx.Application.Users.Queries;
 
 public record GetUsersForAdminQuery(int PageNum,int PageSize,string? Query) : IPagedRequest<UserAdminResult>;
 sealed class GetUsersForAdminQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetUsersForAdminQuery, MultiResponse<UserAdminResult>>

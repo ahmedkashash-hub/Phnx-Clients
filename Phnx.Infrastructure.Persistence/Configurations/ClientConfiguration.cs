@@ -16,6 +16,7 @@ namespace Phnx.Infrastructure.Persistence.Configurations
                 .IsRowVersion()
                 .HasColumnName("xmin")
                 .IsConcurrencyToken();
+            builder.HasIndex(x => x.Email);
         }
    
     }

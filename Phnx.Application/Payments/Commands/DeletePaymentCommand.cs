@@ -7,7 +7,7 @@ using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
-namespace Phnx.Application.Projects.Commands;
+namespace Phnx.Application.Payments.Commands;
 
 public record DeletePaymentCommand([FromRoute] Guid Id) : IRequest;
 public class DeletePaymentCommandValidator : AbstractValidator<DeletePaymentCommand>

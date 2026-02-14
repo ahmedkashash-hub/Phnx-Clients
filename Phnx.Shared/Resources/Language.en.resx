@@ -204,4 +204,7 @@
   <data name="CLIENT_COMPANTNAME_REQUIRED" xml:space="preserve">
     <value>Enter Company Name</value>
   </data>
+  <data name="CLIENT_EXPIRY_DATE_REQUIRED" xml:space="preserve">
+    <value>Enter Expiry Date</value>
+  </data>
 </root>

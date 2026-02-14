@@ -8,7 +8,7 @@ using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
 
-namespace Airport.Application.Users.Commands;
+namespace Phnx.Application.Users.Commands;
 
 public record DeleteUserCommand([FromRoute] Guid Id) : IRequest;
 

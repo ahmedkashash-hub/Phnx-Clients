@@ -13,35 +13,12 @@ using Scalar.AspNetCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-
 var builder = WebApplication.CreateBuilder(args);
 builder.AddLogging();
-builder.Services.AddOpenApi(options =>
-{
-    options.AddDocumentTransformer((doc, _, _) =>
-    {
-        doc.Components ??= new OpenApiComponents();
-        doc.Components?.SecuritySchemes?["Bearer"] = new OpenApiSecurityScheme
-        {
-            Type = SecuritySchemeType.Http,
-            Scheme = "bearer",
-            BearerFormat = "JWT",
-            Description = "Enter JWT Bearer token **_only_**"
-        };
-        return Task.CompletedTask;
-    });
-});
-builder.Services.ConfigureHttpJsonOptions(options =>
-{
-    options.SerializerOptions.PropertyNameCaseInsensitive = true;
-    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
-});
+builder.Services.AddOpenApi();
+
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
-
-
-
 builder.Services.AddPersistenceServices(connectionString: builder.Configuration.GetConnectionString("Phnx") ?? throw new KeyNotFoundException("dbConnection was not found"),
                                         enableSensitiveLogging: true,
                                         ignoreModelWarnings: true);

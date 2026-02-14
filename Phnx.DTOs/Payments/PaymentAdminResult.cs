@@ -18,6 +18,9 @@ namespace Phnx.DTOs.Payments
         public DateTime? PaidDate { get; init; } = entity.PaidDate;
         public PaymentStatus Status { get; init; } = entity.Status;
         public string Method { get; init; } = entity.Method;
+        public Guid ClientId { get; init; } = entity.ClientId;
+        public Guid? ProjectId { get; init; } = entity.ProjectId;
+        public Guid? InvoiceId { get; init; } = entity.InvoiceId;
         public string? TransactionReference { get; init; } = entity.TransactionReference;
 
 

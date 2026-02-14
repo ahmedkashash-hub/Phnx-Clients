@@ -12,38 +12,44 @@ namespace Phnx.Domain.Entities
         {
             private Visit() { }
             private Visit(
-                int  clientId,
+                Guid clientId,
+                Guid projectId,
                 DateTime timeVisit,
                 string note)
 
             {
             Note = note;
+            ProjectId= projectId;
             VisitTime = timeVisit;
             ClientId = clientId;
            
         }
 
             public static Visit Create(
-                 int clientId,
+                 Guid clientId,
+                 Guid projectId,
                 DateTime timeVisit,
                 string note)
-                 => new (clientId, timeVisit, note);
+                 => new (clientId, projectId, timeVisit, note);
                
                
 
-            public int ClientId { get; private set; }
-            public DateTime VisitTime { get; private set; } = DateTime.Now;
+            public Guid ClientId { get; private set; }
+            public Guid ProjectId { get; private set; }
+        public DateTime VisitTime { get; private set; } = DateTime.Now;
             public string Note { get; private set; }=string.Empty;
 
 
 
         public void Update(
-               int clientId,
+               Guid clientId,
+               Guid projectId,
                 DateTime timeVisit,
                 string note)
             {
                 ClientId = clientId;
-                VisitTime = timeVisit;
+            ProjectId = projectId;
+            VisitTime = timeVisit;
                 Note = note;
 
         }

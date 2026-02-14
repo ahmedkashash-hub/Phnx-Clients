@@ -13,7 +13,7 @@ namespace Phnx.Application.Visits.Commands
 
 public class CreateVisitCommand : IRequest
 {
-    public int ClientId { get; set; }
+    public Guid ClientId { get; set; }
     public DateTime VisitTime { get; set; }
     public string Note { get; set; } = string.Empty;
 }
@@ -25,7 +25,7 @@ public class CreateVisitCommandValidator : AbstractValidator<CreateVisitCommand>
         IUnitOfWork unitOfWork)
     {
         RuleFor(x => x.ClientId)
-            .GreaterThan(0)
+            .NotEmpty()
             .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
 
         RuleFor(x => x.VisitTime)

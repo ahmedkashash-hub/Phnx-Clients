@@ -2,6 +2,7 @@
 using Phnx.Contracts;
 using Phnx.Domain.Common;
 using Phnx.Domain.Entities;
+using Phnx.Domain.Enums;
 using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 using Phoenix.Mediator.Exceptions;
@@ -14,10 +15,17 @@ namespace Phnx.Application.Clients.Command
     public class UpdateClientCommand : IRequest
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string Name { get;  set; } = string.Empty;
         public string CompanyName { get; set; } = string.Empty;
+        public string PhoneNumber { get;  set; } = string.Empty;
+        public string Location { get;  set; } = string.Empty;
+        public string Email { get;  set; } = string.Empty;
         public DateTime ExpiryDate { get; set; }
-        public string? Notes { get; set; }
+        public ContactMethod PreferredContactMethod { get; set; } = ContactMethod.Email;
+        public ClientStatus Status { get; set; } = ClientStatus.Active;
+        public string? Website { get; set; }
+        public string? Notes { get;  set; }
+
     }
     public class UpdateClientCommandValidator : AbstractValidator<UpdateClientCommand>
     {
@@ -51,8 +59,14 @@ namespace Phnx.Application.Clients.Command
             client.Update(
                 request.Name,
                 request.CompanyName,
+                request.Location,
+                request.PhoneNumber,
+                request.Email,
                 request.ExpiryDate,
-                request.Notes ?? string.Empty);
+                request.PreferredContactMethod,
+                request.Status,
+                request.Website,
+                request.Notes);
 
             await unitOfWork.SaveChangesAsync(cancellationToken);
         }

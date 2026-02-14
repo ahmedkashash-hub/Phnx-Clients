@@ -36,6 +36,18 @@ namespace Phnx.Infrastructure.Persistence.Database
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Visit> Visits { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Lead> Leads { get; set; }
+        public DbSet<Opportunity> Opportunities { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<AgencyTask> AgencyTasks { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+
         //public DbSet<Advertisement> Advertisements { get; set; }
         //public DbSet<Job> Jobs { get; set; }
         //public DbSet<Department> Departments { get; set; }

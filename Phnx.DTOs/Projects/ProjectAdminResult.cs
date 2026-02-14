@@ -12,10 +12,12 @@ namespace Phnx.DTOs.Projects
     public class ProjectAdminResult(Project entity, List<AdminMiniResult> admins) : BaseDeletableEntityResult<Project>(entity, admins)
     {
         public string projectName { get; init; } = entity.ProjectName;
-        public string description { get; init; } = entity.Description;
+        public string? description { get; init; } = entity.Description;
+        public Guid clientId { get; init; } = entity.ClientId;
         public DateTime mvpReleaseDate { get; init; } = entity.MvpReleaseDate;
         public DateTime productionReleaseDate { get; init; } = entity.ProductionReleaseDate;
         public DateTime expiryDate { get; init; } = entity.ExpiryDate;
+        public ProjectStatus status { get; init; } = entity.Status;
     }
 }
 

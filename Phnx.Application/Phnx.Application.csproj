@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Payments\Queries\**" />
     <Compile Remove="Projects\Queries\**" />
+    <EmbeddedResource Remove="Payments\Queries\**" />
     <EmbeddedResource Remove="Projects\Queries\**" />
+    <None Remove="Payments\Queries\**" />
     <None Remove="Projects\Queries\**" />
   </ItemGroup>
 
@@ -23,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Payments\Queries\" />
     <Folder Include="Visits\Queries\" />
   </ItemGroup>
 

@@ -16,7 +16,7 @@ namespace Phnx.Infrastructure.Services
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton(resourcesManager =>
-                new ResourceManager("Airport.Shared.Resources.Language", typeof(AppConstants).Assembly));
+                new ResourceManager("Phnx.Shared.Resources.Language", typeof(AppConstants).Assembly));
 
             services.AddSingleton<LanguageManager>();
             services.AddScoped<ILanguageService, LanguageService>();

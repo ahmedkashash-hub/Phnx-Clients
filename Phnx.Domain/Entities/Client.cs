@@ -8,55 +8,83 @@ namespace Phnx.Domain.Entities
 {
 
   
-        public class Client : BaseDeletableEntity
+    public class Client : BaseDeletableEntity
+    {
+        private Client() { }
+
+        private Client(
+            string name,
+            string entityName,
+            string location,
+            string phoneNumber,
+            string email,
+            DateTime expiryDate,
+            ContactMethod preferredContactMethod,
+            ClientStatus status,
+            string? website,
+            string? notes)
         {
-            private Client() { }
-
-            private Client(
-                string name,
-                string companyName,
-                DateTime expiryDate,
-                string notes)
-            {
-                Name = name;
-                CompanyName = companyName;
-                RegistrationDate = DateTime.UtcNow;
-                ExpiryDate = expiryDate;
-                Notes = notes;
-                Status = ClientStatus.Active;
-            }
-
-            public static Client Create(
-                string name,
-                string companyName,
-                DateTime expiryDate,
-                string notes)
-                => new(name, companyName, expiryDate, notes);
-
-            public string Name { get; private set; } = string.Empty;
-            public string CompanyName { get; private set; } = string.Empty;
-            public DateTime RegistrationDate { get; private set; }
-            public DateTime ExpiryDate { get; private set; }
-            public ClientStatus Status { get; private set; } = ClientStatus.Active;
-            public string Notes { get; private set; } = string.Empty;
-
-            public void Update(
-                string name,
-                string companyName,
-                DateTime expiryDate,
-                string notes)
-            {
-                Name = name;
-                CompanyName = companyName;
-                ExpiryDate = expiryDate;
-                Notes = notes;
-            }
-
-            public void ChangeStatus(ClientStatus status)
-            {
-                Status = status;
-            }
+            Name = name;
+            this.EntityName = EntityName;
+            Location = location;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            ExpiryDate = expiryDate;
+            PreferredContactMethod = preferredContactMethod;
+            Status = status;
+            Website = website;
+            Notes = notes;
         }
 
+        public static Client Create(
+            string name,
+            string entityName,
+            string location,
+            string phoneNumber,
+            string email,
+            DateTime expiryDate,
+            ContactMethod preferredContactMethod,
+            ClientStatus status,
+            string? website,
+            string? notes)
+            => new Client(name, entityName, location, phoneNumber, email, expiryDate, preferredContactMethod, status, website, notes);
 
+
+        public string Name { get; private set; } = string.Empty;
+        public string EntityName { get; private set; } = string.Empty;
+        public string PhoneNumber { get; private set; } = string.Empty;
+        public string Location { get; private set; } = string.Empty;
+        public string Email { get; private set; } = string.Empty;
+        public DateTime ExpiryDate { get; private set; }
+        public ContactMethod PreferredContactMethod { get; private set; } = ContactMethod.Email;
+        public ClientStatus Status { get; private set; } = ClientStatus.Active;
+        public string? Website { get; private set; }
+        public string? Notes { get; private set; }
+
+        public void Update(
+            string name,
+            string companyName,
+            string location,
+            string phoneNumber,
+            string email,
+            DateTime expiryDate,
+            ContactMethod preferredContactMethod,
+            ClientStatus status,
+            string? website,
+            string? notes)
+        {
+            Name = name;
+            EntityName = companyName;
+            Location = location;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            ExpiryDate = expiryDate;
+            PreferredContactMethod = preferredContactMethod;
+            Status = status;
+            Website = website;
+            Notes = notes;
+        }
     }
+
+
+}

@@ -7,7 +7,7 @@ using Phnx.Domain.Enums;
 using Phnx.Shared.Constants;
 using Phoenix.Mediator.Abstractions;
 
-namespace Airport.Application.Users.Commands;
+namespace Phnx.Application.Users.Commands;
 
 public class CreateUserCommand : IRequest
 {

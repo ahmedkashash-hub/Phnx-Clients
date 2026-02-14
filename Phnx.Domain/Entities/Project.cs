@@ -14,14 +14,14 @@ namespace Phnx.Domain.Entities
         private Project(
             string projectName,
             string? description,
-            int clientId,
+            Guid clientId,
             DateTime mvpReleaseDate,
             DateTime productionReleaseDate,
             DateTime expiryDate)
         {
             ProjectName = projectName;
             Description = description;
-            CreationDate = DateTime.UtcNow;
+            CreationDate = DateTime.Now;
             ClientId = clientId;
             MvpReleaseDate = mvpReleaseDate;
             ProductionReleaseDate = productionReleaseDate;
@@ -32,7 +32,7 @@ namespace Phnx.Domain.Entities
         public static Project Create(
             string projectName,
             string? description,
-                int clientId,
+            Guid clientId,
             DateTime mvpReleaseDate,
             DateTime productionReleaseDate,
             DateTime expiryDate)
@@ -43,7 +43,7 @@ namespace Phnx.Domain.Entities
         public string ProjectName { get; private set; } = string.Empty;
         public string? Description { get; private set; }
         public DateTime CreationDate { get; private set; }
-        public int ClientId { get; private set; }
+        public Guid ClientId { get; private set; }
         public DateTime MvpReleaseDate { get; private set; }
         public DateTime ProductionReleaseDate { get; private set; }
         public DateTime ExpiryDate { get; private set; }
@@ -52,7 +52,7 @@ namespace Phnx.Domain.Entities
         public void Update(
             string projectName,
             string? description,
-            int clientId,
+            Guid clientId,
             DateTime mvpReleaseDate,
 
             DateTime productionReleaseDate,

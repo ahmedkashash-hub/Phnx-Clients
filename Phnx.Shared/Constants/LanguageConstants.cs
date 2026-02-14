@@ -21,6 +21,7 @@ namespace Phnx.Shared.Constants
         public const string CLIENT_ID_REQUIRED = nameof(CLIENT_ID_REQUIRED);
         public const string CLIENT_NAME_REQUIRED = nameof(CLIENT_NAME_REQUIRED);
         public const string CLIENT_COMPANTNAME_REQUIRED = nameof(CLIENT_COMPANTNAME_REQUIRED);
+        public const string CLIENT_EXPIRY_DATE_REQUIRED = nameof(CLIENT_EXPIRY_DATE_REQUIRED);
         #endregion
 
         #region Project Messages

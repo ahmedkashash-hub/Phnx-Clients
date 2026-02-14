@@ -18,6 +18,6 @@
     <Project Path="Phnx.Shared/Phnx.Shared.csproj" Id="88ea40d8-7157-4aa0-9450-d42e104d2d75" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="../Phnx-Clients1/Phnx.Tests.LanguageTests/Phnx.Tests.LanguageTests.csproj" Id="ced451be-61e0-487e-b432-5d259927644e" />
+    <Project Path="Phnx.Tests.LanguageTests/Phnx.Tests.LanguageTests.csproj" Id="ced451be-61e0-487e-b432-5d259927644e" />
   </Folder>
 </Solution>

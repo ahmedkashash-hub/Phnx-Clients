@@ -16,12 +16,18 @@ namespace Phnx.Domain.Entities
             decimal amount,
             DateTime dueDate,
             string method,
+            Guid clientId,
+            Guid? projectId,
+            Guid? invoiceId,
             string? transactionReference)
         {
             PaymentType = paymentType;
             Amount = amount;
             DueDate = dueDate;
             Method = method;
+            ClientId = clientId;
+            ProjectId = projectId;
+            InvoiceId = invoiceId;
             TransactionReference = transactionReference;
             Status = PaymentStatus.Pending;
         }
@@ -31,8 +37,11 @@ namespace Phnx.Domain.Entities
             decimal amount,
             DateTime dueDate,
             string method,
+            Guid clientId,
+            Guid? projectId,
+            Guid? invoiceId,
             string? transactionReference = null)
-            => new(paymentType, amount, dueDate, method, transactionReference);
+            => new(paymentType, amount, dueDate, method, clientId, projectId, invoiceId, transactionReference);
 
         public string PaymentType { get; private set; } = string.Empty;
         public decimal Amount { get; private set; }
@@ -40,6 +49,9 @@ namespace Phnx.Domain.Entities
         public DateTime? PaidDate { get; private set; }
         public PaymentStatus Status { get; private set; }
         public string Method { get; private set; } = string.Empty;
+        public Guid ClientId { get; private set; }
+        public Guid? ProjectId { get; private set; }
+        public Guid? InvoiceId { get; private set; }
         public string? TransactionReference { get; private set; }
 
         public void Update(
@@ -47,12 +59,18 @@ namespace Phnx.Domain.Entities
             decimal amount,
             DateTime dueDate,
             string method,
+            Guid clientId,
+            Guid? projectId,
+            Guid? invoiceId,
             string? transactionReference)
         {
             PaymentType = paymentType;
             Amount = amount;
             DueDate = dueDate;
             Method = method;
+            ClientId = clientId;
+            ProjectId = projectId;
+            InvoiceId = invoiceId;
             TransactionReference = transactionReference;
         }
 

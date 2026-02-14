@@ -8,13 +8,24 @@ using System.Text;
 namespace Phnx.DTOs.Payments
 {
     
-    public class PaymentResult(string paymentType, decimal amount, DateTime dueDate,  string method,string transactionReference)
+    public class PaymentResult(
+        string paymentType,
+        decimal amount,
+        DateTime dueDate,
+        string method,
+        Guid clientId,
+        Guid? projectId,
+        Guid? invoiceId,
+        string? transactionReference)
     {
         public string PaymentType => paymentType;
         public decimal Amount => amount;
         public DateTime DueDate => dueDate;
         public string Method => method;
-   public string TransactionReference => transactionReference;
+        public Guid ClientId => clientId;
+        public Guid? ProjectId => projectId;
+        public Guid? InvoiceId => invoiceId;
+        public string? TransactionReference => transactionReference;
     }
 
 }
