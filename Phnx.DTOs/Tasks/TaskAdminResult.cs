@@ -11,10 +11,8 @@ namespace Phnx.DTOs.Tasks
         public string Title { get; init; } = entity.Title;
         public string? Description { get; init; } = entity.Description;
         public DateTime? DueDate { get; init; } = entity.DueDate;
-        public TaskStatus Status { get; init; } = entity.Status;
-        public TaskPriority Priority { get; init; } = entity.Priority;
-        public Guid? AssignedToId { get; init; } = entity.AssignedToId;
-        public Guid? ClientId { get; init; } = entity.ClientId;
+   
+   
         public Guid? ProjectId { get; init; } = entity.ProjectId;
     }
 }

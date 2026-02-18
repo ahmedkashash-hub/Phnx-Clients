@@ -13,7 +13,7 @@ namespace Phnx.DTOs.Clients
         public string Location { get; init; } = entity.Location;
         public string Email { get; init; } = entity.Email;
         public DateTime ExpiryDate { get; init; } = entity.ExpiryDate;
-        public ClientStatus Status { get; init; } = entity.Status;
+       
         public ContactMethod PreferredContactMethod { get; init; } = entity.PreferredContactMethod;
         public string? Website { get; init; } = entity.Website;
         public string? Notes { get; init; } = entity.Notes;
