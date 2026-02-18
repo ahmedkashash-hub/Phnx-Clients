@@ -43,7 +43,7 @@ namespace Phnx.Infrastructure.Persistence.Database
         public DbSet<Service> Services { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<AgencyTask> AgencyTasks { get; set; }
+     
         public DbSet<Activity> Activities { get; set; }
 
        
