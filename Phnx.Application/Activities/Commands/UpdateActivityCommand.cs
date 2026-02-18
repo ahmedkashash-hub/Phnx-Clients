@@ -14,11 +14,9 @@ public class UpdateActivityCommand : IRequest
     public string Subject { get; set; } = string.Empty;
     public string? Notes { get; set; }
     public DateTime OccurredAt { get; set; }
-    public Guid? ClientId { get; set; }
-    public Guid? LeadId { get; set; }
-    public Guid? ContactId { get; set; }
-    public Guid? ProjectId { get; set; }
-    public Guid? OwnerId { get; set; }
+    
+    public Guid ProjectId { get; set; }
+  
 }
 
 public class UpdateActivityCommandValidator : AbstractValidator<UpdateActivityCommand>
@@ -37,25 +35,15 @@ public class UpdateActivityCommandValidator : AbstractValidator<UpdateActivityCo
             .NotEmpty()
             .WithMessage(languageService.GetMessage(LanguageConstants.ACTIVITY_OCCURRED_AT_REQUIRED));
 
-        RuleFor(x => x.ClientId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
+    
 
-        RuleFor(x => x.LeadId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.LEAD_ID_REQUIRED));
 
-        RuleFor(x => x.ContactId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.CONTACT_ID_REQUIRED));
 
         RuleFor(x => x.ProjectId)
             .NotEmpty()
             .WithMessage(languageService.GetMessage(LanguageConstants.PROJECT_ID_REQUIRED));
 
-        RuleFor(x => x.OwnerId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
+       
     }
 }
 
@@ -72,11 +60,9 @@ sealed class UpdateActivityCommandHandler(IUnitOfWork unitOfWork, ILanguageServi
             request.Subject,
             request.Notes,
             request.OccurredAt,
-            request.ClientId!.Value,
-            request.LeadId!.Value,
-            request.ContactId!.Value,
-            request.ProjectId!.Value,
-            request.OwnerId!.Value);
+          
+            request.ProjectId
+            );
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
     }

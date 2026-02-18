@@ -8,13 +8,11 @@ using Phnx.Infrastructure.Persistence.Database;
 using Phnx.Infrastructure.Persistence.Extensions;
 using Phnx.Infrastructure.Services;
 using Phnx_Clients.Extensions;
-using Phoenix.Mediator.Abstractions;
+
 using Phoenix.Mediator.Extensions;
 using Phoenix.Mediator.Web;
 using Scalar.AspNetCore;
-using System.Reflection;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddLogging();

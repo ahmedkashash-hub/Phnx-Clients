@@ -22,7 +22,7 @@ namespace Phnx.Application.Clients.Command
         public string Email { get;  set; } = string.Empty;
         public DateTime ExpiryDate { get; set; }
         public ContactMethod PreferredContactMethod { get; set; } = ContactMethod.Email;
-        public ClientStatus Status { get; set; } = ClientStatus.Active;
+      
         public string? Website { get; set; }
         public string? Notes { get;  set; }
 
@@ -64,7 +64,7 @@ namespace Phnx.Application.Clients.Command
                 request.Email,
                 request.ExpiryDate,
                 request.PreferredContactMethod,
-                request.Status,
+              
                 request.Website,
                 request.Notes);
 

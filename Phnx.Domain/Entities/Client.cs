@@ -15,7 +15,7 @@ namespace Phnx.Domain.Entities
             string email,
             DateTime expiryDate,
             ContactMethod preferredContactMethod,
-            ClientStatus status,
+            
             string? website,
             string? notes)
         {
@@ -26,7 +26,7 @@ namespace Phnx.Domain.Entities
             Email = email;
             ExpiryDate = expiryDate;
             PreferredContactMethod = preferredContactMethod;
-            Status = status;
+          
             Website = website;
             Notes = notes;
         }
@@ -39,10 +39,10 @@ namespace Phnx.Domain.Entities
             string email,
             DateTime expiryDate,
             ContactMethod preferredContactMethod,
-            ClientStatus status,
+      
             string? website,
             string? notes)
-            => new(name, companyName, location, phoneNumber, email, expiryDate, preferredContactMethod, status, website, notes);
+            => new(name, companyName, location, phoneNumber, email, expiryDate, preferredContactMethod, website, notes);
 
         public string Name { get; private set; } = string.Empty;
         public string CompanyName { get; private set; } = string.Empty;
@@ -51,7 +51,7 @@ namespace Phnx.Domain.Entities
         public string Email { get; private set; } = string.Empty;
         public DateTime ExpiryDate { get; private set; }
         public ContactMethod PreferredContactMethod { get; private set; } = ContactMethod.Email;
-        public ClientStatus Status { get; private set; } = ClientStatus.Active;
+    
         public string? Website { get; private set; }
         public string? Notes { get; private set; }
 
@@ -63,7 +63,7 @@ namespace Phnx.Domain.Entities
             string email,
             DateTime expiryDate,
             ContactMethod preferredContactMethod,
-            ClientStatus status,
+           
             string? website,
             string? notes)
         {
@@ -74,7 +74,7 @@ namespace Phnx.Domain.Entities
             Email = email;
             ExpiryDate = expiryDate;
             PreferredContactMethod = preferredContactMethod;
-            Status = status;
+           
             Website = website;
             Notes = notes;
         }

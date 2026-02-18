@@ -14,11 +14,8 @@ public class UpdateAgencyTaskCommand : IRequest
     public string Title { get; set; } = string.Empty;
     public string? Description { get; set; }
     public DateTime? DueDate { get; set; }
-    public DomainTaskStatus Status { get; set; } = DomainTaskStatus.Todo;
-    public TaskPriority Priority { get; set; } = TaskPriority.Medium;
-    public Guid? AssignedToId { get; set; }
-    public Guid? ClientId { get; set; }
-    public Guid? ProjectId { get; set; }
+  
+    public Guid ProjectId { get; set; }
 }
 
 public class UpdateAgencyTaskCommandValidator : AbstractValidator<UpdateAgencyTaskCommand>
@@ -33,13 +30,6 @@ public class UpdateAgencyTaskCommandValidator : AbstractValidator<UpdateAgencyTa
             .NotEmpty()
             .WithMessage(languageService.GetMessage(LanguageConstants.TASK_TITLE_REQUIRED));
 
-        RuleFor(x => x.AssignedToId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.USER_ID_REQUIRED));
-
-        RuleFor(x => x.ClientId)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.CLIENT_ID_REQUIRED));
 
         RuleFor(x => x.ProjectId)
             .NotEmpty()
@@ -59,11 +49,8 @@ sealed class UpdateAgencyTaskCommandHandler(IUnitOfWork unitOfWork, ILanguageSer
             request.Title,
             request.Description,
             request.DueDate,
-            request.Status,
-            request.Priority,
-            request.AssignedToId!.Value,
-            request.ClientId!.Value,
-            request.ProjectId!.Value);
+         
+            request.ProjectId);
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
     }

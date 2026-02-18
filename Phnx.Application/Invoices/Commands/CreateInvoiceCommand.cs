@@ -15,8 +15,8 @@ public class CreateInvoiceCommand : IRequest
     public decimal Subtotal { get; set; }
     public decimal Tax { get; set; }
     public decimal Total { get; set; }
-    public string Currency { get; set; } = "USD";
-    public InvoiceStatus Status { get; set; } = InvoiceStatus.Draft;
+
+
     public string? Notes { get; set; }
 }
 
@@ -50,9 +50,7 @@ public class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceComm
             .GreaterThan(0)
             .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_TOTAL_INVALID));
 
-        RuleFor(x => x.Currency)
-            .NotEmpty()
-            .WithMessage(languageService.GetMessage(LanguageConstants.INVOICE_CURRENCY_REQUIRED));
+    
     }
 }
 
@@ -64,14 +62,14 @@ sealed class CreateInvoiceCommandHandler(IUnitOfWork unitOfWork) : IRequestHandl
 
         Invoice invoice = Invoice.Create(
             request.ClientId,
-            request.ProjectId,
+            
             request.IssueDate,
             request.DueDate,
             request.Subtotal,
-            request.Tax,
+          
             request.Total,
-            request.Currency,
-            request.Status,
+          
+           
             request.Notes);
 
         await repository.Create(invoice, cancellationToken);
