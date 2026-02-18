@@ -53,7 +53,6 @@ namespace Phnx.Domain.Entities
         public decimal Total { get; private set; }
         public string Currency { get; private set; }
 
-
         public string? Notes { get; private set; }
 
         public void Update(

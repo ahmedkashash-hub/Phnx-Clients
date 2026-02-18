@@ -1,6 +1,5 @@
 using Phnx.Domain.Common;
 using Phnx.Domain.Enums;
-using DomainTaskStatus = Phnx.Domain.Enums.TaskStatus;
 
 namespace Phnx.Domain.Entities
 {
